@@ -10,6 +10,10 @@
 		048569F3245DE89D000F9A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048569F2245DE89D000F9A48 /* AppDelegate.swift */; };
 		048569FC245DE89E000F9A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048569FB245DE89E000F9A48 /* Assets.xcassets */; };
 		048569FF245DE89E000F9A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048569FD245DE89E000F9A48 /* LaunchScreen.storyboard */; };
+		04CBDCB82460155F004D6A8A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCB72460155F004D6A8A /* NetworkService.swift */; };
+		04CBDCBA246015B8004D6A8A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCB9246015B8004D6A8A /* API.swift */; };
+		04CBDCBC246016FD004D6A8A /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCBB246016FD004D6A8A /* NetworkDataFetcher.swift */; };
+		04CBDCBF2460179E004D6A8A /* BreedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCBE2460179E004D6A8A /* BreedResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +22,10 @@
 		048569FB245DE89E000F9A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		048569FE245DE89E000F9A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04856A00245DE89E000F9A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04CBDCB72460155F004D6A8A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		04CBDCB9246015B8004D6A8A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		04CBDCBB246016FD004D6A8A /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		04CBDCBE2460179E004D6A8A /* BreedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +58,32 @@
 		048569F1245DE89D000F9A48 /* CatApiTest */ = {
 			isa = PBXGroup;
 			children = (
+				04CBDCB624601548004D6A8A /* Services */,
 				048569F2245DE89D000F9A48 /* AppDelegate.swift */,
 				048569FB245DE89E000F9A48 /* Assets.xcassets */,
 				048569FD245DE89E000F9A48 /* LaunchScreen.storyboard */,
 				04856A00245DE89E000F9A48 /* Info.plist */,
 			);
 			path = CatApiTest;
+			sourceTree = "<group>";
+		};
+		04CBDCB624601548004D6A8A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04CBDCBD24601794004D6A8A /* Models */,
+				04CBDCB72460155F004D6A8A /* NetworkService.swift */,
+				04CBDCB9246015B8004D6A8A /* API.swift */,
+				04CBDCBB246016FD004D6A8A /* NetworkDataFetcher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		04CBDCBD24601794004D6A8A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				04CBDCBE2460179E004D6A8A /* BreedResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CBDCBC246016FD004D6A8A /* NetworkDataFetcher.swift in Sources */,
+				04CBDCB82460155F004D6A8A /* NetworkService.swift in Sources */,
+				04CBDCBA246015B8004D6A8A /* API.swift in Sources */,
+				04CBDCBF2460179E004D6A8A /* BreedResponse.swift in Sources */,
 				048569F3245DE89D000F9A48 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
