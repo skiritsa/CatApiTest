@@ -9,25 +9,25 @@
 import Foundation
 
 protocol DataFetcher {
-    func getBreed(response: @escaping ([Breed]?) -> Void)
+    func getBreed(response: @escaping ([BreedResponse]?) -> Void)
 }
 
 struct NetworkDataFetcher: DataFetcher {
     
     let networking: Networking
     
-    init(networking: Networking) {
-        self.networking = networking
+    init() {
+        self.networking = NetworkService()
     }
     
-    func getBreed(response: @escaping ([Breed]?) -> Void) {
+    func getBreed(response: @escaping ([BreedResponse]?) -> Void) {
         var params = ["":""]
         networking.request(path: API.breeds, params: params) { (data, error) in
             if let error = error {
                 print("Error received requesting data: \(error.localizedDescription)")
                 response(nil)
             }
-            let decoded = self.decodeJSON(type: [Breed].self, from: data)
+            let decoded = self.decodeJSON(type: [BreedResponse].self, from: data)
             response(decoded)
         }
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Breed: Codable {
+struct BreedResponse: Codable {
     let weight: Weight
     let id: String
     let name: String
