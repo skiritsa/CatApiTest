@@ -32,6 +32,20 @@ struct NetworkDataFetcher: DataFetcher {
         }
     }
     
+    func getImageUrl(_ forBreed: BreedResponse, response: @escaping ([BreedImageResponse]?) -> Void) {
+        var params = ["size": "full", "order": "ASC"]
+        params["breed_id"] = forBreed.id
+        
+        networking.request(path: API.breedImage, params: params) { (data, error) in
+            if let error = error {
+                print("Error received requesting data: \(error.localizedDescription)")
+                response(nil)
+            }
+            let decoded = self.decodeJSON(type: [BreedImageResponse].self, from: data)
+            response(decoded)
+        }
+    }
+    
     private func decodeJSON<T: Decodable>(type: T.Type, from: Data?) -> T? {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

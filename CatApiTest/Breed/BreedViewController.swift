@@ -31,18 +31,6 @@ class BreedViewController: UIViewController {
             }
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension BreedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -56,5 +44,11 @@ extension BreedViewController: UITableViewDelegate, UITableViewDataSource {
         let breed = allBreed[indexPath.row]
         cell.set(breed: breed)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vc = UIStoryboard(name: "BreedDetail", bundle: nil).instantiateViewController(identifier: "BreedDetail") as? BreedDetailViewController else { return }
+        vc.curentBreed = allBreed[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -10,6 +10,10 @@
 		048569F3245DE89D000F9A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048569F2245DE89D000F9A48 /* AppDelegate.swift */; };
 		048569FC245DE89E000F9A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048569FB245DE89E000F9A48 /* Assets.xcassets */; };
 		048569FF245DE89E000F9A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048569FD245DE89E000F9A48 /* LaunchScreen.storyboard */; };
+		04A8FD2D246D48C600ACB1A7 /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8FD2C246D48C600ACB1A7 /* BreedDetailViewController.swift */; };
+		04A8FD2F246D499A00ACB1A7 /* BreedDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A8FD2E246D499A00ACB1A7 /* BreedDetail.storyboard */; };
+		04A8FD32246D4F6F00ACB1A7 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8FD31246D4F6F00ACB1A7 /* WebImageView.swift */; };
+		04A8FD34246D51AF00ACB1A7 /* BreedImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8FD33246D51AF00ACB1A7 /* BreedImageResponse.swift */; };
 		04CBDCB82460155F004D6A8A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCB72460155F004D6A8A /* NetworkService.swift */; };
 		04CBDCBA246015B8004D6A8A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCB9246015B8004D6A8A /* API.swift */; };
 		04CBDCBC246016FD004D6A8A /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCBB246016FD004D6A8A /* NetworkDataFetcher.swift */; };
@@ -26,6 +30,10 @@
 		048569FB245DE89E000F9A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		048569FE245DE89E000F9A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04856A00245DE89E000F9A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04A8FD2C246D48C600ACB1A7 /* BreedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewController.swift; sourceTree = "<group>"; };
+		04A8FD2E246D499A00ACB1A7 /* BreedDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreedDetail.storyboard; sourceTree = "<group>"; };
+		04A8FD31246D4F6F00ACB1A7 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		04A8FD33246D51AF00ACB1A7 /* BreedImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageResponse.swift; sourceTree = "<group>"; };
 		04CBDCB72460155F004D6A8A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		04CBDCB9246015B8004D6A8A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		04CBDCBB246016FD004D6A8A /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
@@ -70,11 +78,29 @@
 				04CBDCB624601548004D6A8A /* Services */,
 				04856A00245DE89E000F9A48 /* Info.plist */,
 				04CBDCD024603A76004D6A8A /* Breed */,
+				04A8FD2B246D489700ACB1A7 /* BreedDetail */,
 				04CBDCD724606392004D6A8A /* Helpres */,
 				048569FD245DE89E000F9A48 /* LaunchScreen.storyboard */,
 				048569FB245DE89E000F9A48 /* Assets.xcassets */,
 			);
 			path = CatApiTest;
+			sourceTree = "<group>";
+		};
+		04A8FD2B246D489700ACB1A7 /* BreedDetail */ = {
+			isa = PBXGroup;
+			children = (
+				04A8FD2C246D48C600ACB1A7 /* BreedDetailViewController.swift */,
+				04A8FD2E246D499A00ACB1A7 /* BreedDetail.storyboard */,
+			);
+			path = BreedDetail;
+			sourceTree = "<group>";
+		};
+		04A8FD30246D4F5A00ACB1A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04A8FD31246D4F6F00ACB1A7 /* WebImageView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		04CBDCB624601548004D6A8A /* Services */ = {
@@ -92,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				04CBDCBE2460179E004D6A8A /* BreedResponse.swift */,
+				04A8FD33246D51AF00ACB1A7 /* BreedImageResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				04CBDCD8246063A4004D6A8A /* Constraints.swift */,
+				04A8FD30246D4F5A00ACB1A7 /* Views */,
 			);
 			path = Helpres;
 			sourceTree = "<group>";
@@ -182,6 +210,7 @@
 			files = (
 				04CBDCD224605B9B004D6A8A /* Main.storyboard in Resources */,
 				048569FF245DE89E000F9A48 /* LaunchScreen.storyboard in Resources */,
+				04A8FD2F246D499A00ACB1A7 /* BreedDetail.storyboard in Resources */,
 				048569FC245DE89E000F9A48 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,8 +225,11 @@
 				04CBDCD524605CC5004D6A8A /* BreedCell.swift in Sources */,
 				04CBDCBC246016FD004D6A8A /* NetworkDataFetcher.swift in Sources */,
 				04CBDCB82460155F004D6A8A /* NetworkService.swift in Sources */,
+				04A8FD32246D4F6F00ACB1A7 /* WebImageView.swift in Sources */,
 				04CBDCBA246015B8004D6A8A /* API.swift in Sources */,
+				04A8FD2D246D48C600ACB1A7 /* BreedDetailViewController.swift in Sources */,
 				04CBDCD9246063A4004D6A8A /* Constraints.swift in Sources */,
+				04A8FD34246D51AF00ACB1A7 /* BreedImageResponse.swift in Sources */,
 				04CBDCBF2460179E004D6A8A /* BreedResponse.swift in Sources */,
 				04CBDCDB24607839004D6A8A /* BreedViewController.swift in Sources */,
 				048569F3245DE89D000F9A48 /* AppDelegate.swift in Sources */,
@@ -268,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -322,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -339,7 +371,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5UW52T8C97;
 				INFOPLIST_FILE = CatApiTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,7 +390,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5UW52T8C97;
 				INFOPLIST_FILE = CatApiTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
