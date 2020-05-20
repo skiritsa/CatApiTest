@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045B31AE24746B1D0086ABE2 /* TableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B31AD24746B1D0086ABE2 /* TableLayout.swift */; };
 		048569F3245DE89D000F9A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048569F2245DE89D000F9A48 /* AppDelegate.swift */; };
 		048569FC245DE89E000F9A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048569FB245DE89E000F9A48 /* Assets.xcassets */; };
 		048569FF245DE89E000F9A48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048569FD245DE89E000F9A48 /* LaunchScreen.storyboard */; };
+		048D1BE024741BEE00FAC83A /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D1BDF24741BEE00FAC83A /* GalleryViewController.swift */; };
+		048D1BE324741D1000FAC83A /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D1BE224741D1000FAC83A /* GalleryCollectionViewCell.swift */; };
+		048D1BE52474222A00FAC83A /* GalleryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048D1BE42474222A00FAC83A /* GalleryViewController.storyboard */; };
 		04A8FD2D246D48C600ACB1A7 /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8FD2C246D48C600ACB1A7 /* BreedDetailViewController.swift */; };
 		04A8FD2F246D499A00ACB1A7 /* BreedDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A8FD2E246D499A00ACB1A7 /* BreedDetail.storyboard */; };
 		04A8FD32246D4F6F00ACB1A7 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8FD31246D4F6F00ACB1A7 /* WebImageView.swift */; };
@@ -27,11 +31,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045B31AD24746B1D0086ABE2 /* TableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLayout.swift; sourceTree = "<group>"; };
 		048569EF245DE89D000F9A48 /* CatApiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatApiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048569F2245DE89D000F9A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		048569FB245DE89E000F9A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		048569FE245DE89E000F9A48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04856A00245DE89E000F9A48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		048D1BDF24741BEE00FAC83A /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		048D1BE224741D1000FAC83A /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		048D1BE42474222A00FAC83A /* GalleryViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GalleryViewController.storyboard; sourceTree = "<group>"; };
 		04A8FD2C246D48C600ACB1A7 /* BreedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewController.swift; sourceTree = "<group>"; };
 		04A8FD2E246D499A00ACB1A7 /* BreedDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreedDetail.storyboard; sourceTree = "<group>"; };
 		04A8FD31246D4F6F00ACB1A7 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
@@ -83,11 +91,23 @@
 				04856A00245DE89E000F9A48 /* Info.plist */,
 				04CBDCD024603A76004D6A8A /* Breed */,
 				04A8FD2B246D489700ACB1A7 /* BreedDetail */,
+				048D1BDC24741B7800FAC83A /* GalleryVC */,
 				04CBDCD724606392004D6A8A /* Helpres */,
 				048569FD245DE89E000F9A48 /* LaunchScreen.storyboard */,
 				048569FB245DE89E000F9A48 /* Assets.xcassets */,
 			);
 			path = CatApiTest;
+			sourceTree = "<group>";
+		};
+		048D1BDC24741B7800FAC83A /* GalleryVC */ = {
+			isa = PBXGroup;
+			children = (
+				048D1BE224741D1000FAC83A /* GalleryCollectionViewCell.swift */,
+				048D1BDF24741BEE00FAC83A /* GalleryViewController.swift */,
+				048D1BE42474222A00FAC83A /* GalleryViewController.storyboard */,
+				045B31AD24746B1D0086ABE2 /* TableLayout.swift */,
+			);
+			path = GalleryVC;
 			sourceTree = "<group>";
 		};
 		04A8FD2B246D489700ACB1A7 /* BreedDetail */ = {
@@ -218,6 +238,7 @@
 				048569FF245DE89E000F9A48 /* LaunchScreen.storyboard in Resources */,
 				04A8FD2F246D499A00ACB1A7 /* BreedDetail.storyboard in Resources */,
 				048569FC245DE89E000F9A48 /* Assets.xcassets in Resources */,
+				048D1BE52474222A00FAC83A /* GalleryViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +250,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04CBDCD524605CC5004D6A8A /* BreedCell.swift in Sources */,
+				048D1BE024741BEE00FAC83A /* GalleryViewController.swift in Sources */,
+				045B31AE24746B1D0086ABE2 /* TableLayout.swift in Sources */,
 				04CBDCBC246016FD004D6A8A /* NetworkDataFetcher.swift in Sources */,
 				04CBDCB82460155F004D6A8A /* NetworkService.swift in Sources */,
 				04A8FD32246D4F6F00ACB1A7 /* WebImageView.swift in Sources */,
@@ -238,6 +261,7 @@
 				04A8FD2D246D48C600ACB1A7 /* BreedDetailViewController.swift in Sources */,
 				04CBDCD9246063A4004D6A8A /* Constraints.swift in Sources */,
 				04A8FD34246D51AF00ACB1A7 /* BreedImageResponse.swift in Sources */,
+				048D1BE324741D1000FAC83A /* GalleryCollectionViewCell.swift in Sources */,
 				04CBDCBF2460179E004D6A8A /* BreedResponse.swift in Sources */,
 				04CBDCDB24607839004D6A8A /* BreedViewController.swift in Sources */,
 				048569F3245DE89D000F9A48 /* AppDelegate.swift in Sources */,

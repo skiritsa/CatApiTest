@@ -32,9 +32,12 @@ struct NetworkDataFetcher: DataFetcher {
         }
     }
     
-    func getImageUrl(_ forBreed: BreedResponse, response: @escaping ([BreedImageResponse]?) -> Void) {
-        var params = ["size": "full", "order": "ASC"]
-        params["breed_id"] = forBreed.id
+    func getImageUrl(_ forBreed: BreedResponse?, response: @escaping ([BreedImageResponse]?) -> Void) {
+        var params = ["size": "full", "order": "ASC", "limit": "50"]
+        
+        if let breed = forBreed {
+        params["breed_id"] = breed.id
+        }
         
         networking.request(path: API.breedImage, params: params) { (data, error) in
             if let error = error {

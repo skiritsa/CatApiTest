@@ -107,6 +107,7 @@ class BreedDetailViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("View all photo", for: .normal)
         button.backgroundColor = .gray
+        button.addTarget(self, action: #selector(showBreedImageGallery), for: .touchUpInside)
         return button
     }()
     
@@ -422,7 +423,7 @@ class BreedDetailViewController: UIViewController {
         
         let font = UIFont.systemFont(ofSize: 14)
         
-        if breed.altNames == "" {
+        if breed.altNames == "" || breed.altNames == nil {
             altNameLabel.isHidden = true
             countryCodeLabelTopAnchor?.constant = -20
         } else {
@@ -471,12 +472,19 @@ class BreedDetailViewController: UIViewController {
         vocalisationRating.rating = breed.vocalisation
         
     }
+    
+    @objc func showBreedImageGallery() {
+        guard let vc = UIStoryboard(name: "GalleryViewController", bundle: nil).instantiateViewController(identifier: "GalleryViewController") as? GalleryViewController else { return }
+        vc.set(breed: curentBreed)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    //MARK: - Constraints
     func overlayFirstLayer() {
         view.addSubview(scrollView)
         scrollView.fillSuperview()
         scrollView.addSubview(cardView)
         
-        //MARK: - cardView constraints
         cardView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         cardView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         cardView.heightAnchor.constraint(equalToConstant: 1900).isActive = true
@@ -731,7 +739,7 @@ class BreedDetailViewController: UIViewController {
         //MARK: - vocalisationLabel constraints
         vocalisationLabel.topAnchor.constraint(equalTo: strangerFriendlyLabel.bottomAnchor ,constant: 10).isActive = true
         vocalisationLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
-        vocalisationLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -20).isActive = true
+        vocalisationLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20).isActive = true
         
         //MARK: - vocalisationRating constraints
         vocalisationRating.centerYAnchor.constraint(equalTo: vocalisationLabel.centerYAnchor).isActive = true
@@ -770,7 +778,9 @@ class BreedDetailViewController: UIViewController {
         wikiImageView.widthAnchor.constraint(equalTo: socialView.heightAnchor).isActive = true
         
     }
-    
+}
+
+extension BreedDetailViewController {
     func setImageViewHeight(image: BreedImageResponse) {
         let photoHeight: Float = Float(image.height)
         let photoWidth: Float = Float(image.width)
@@ -790,4 +800,3 @@ class BreedDetailViewController: UIViewController {
         return boltAttributedString
     }
 }
-
