@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0414A5A5247554A3007C6BAB /* FullPhotoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0414A5A4247554A3007C6BAB /* FullPhotoLayout.swift */; };
 		045B31AE24746B1D0086ABE2 /* TableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B31AD24746B1D0086ABE2 /* TableLayout.swift */; };
 		048569F3245DE89D000F9A48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048569F2245DE89D000F9A48 /* AppDelegate.swift */; };
 		048569FC245DE89E000F9A48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048569FB245DE89E000F9A48 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0414A5A4247554A3007C6BAB /* FullPhotoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoLayout.swift; sourceTree = "<group>"; };
 		045B31AD24746B1D0086ABE2 /* TableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLayout.swift; sourceTree = "<group>"; };
 		048569EF245DE89D000F9A48 /* CatApiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatApiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		048569F2245DE89D000F9A48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				048D1BDF24741BEE00FAC83A /* GalleryViewController.swift */,
 				048D1BE42474222A00FAC83A /* GalleryViewController.storyboard */,
 				045B31AD24746B1D0086ABE2 /* TableLayout.swift */,
+				0414A5A4247554A3007C6BAB /* FullPhotoLayout.swift */,
 			);
 			path = GalleryVC;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				04CBDCD524605CC5004D6A8A /* BreedCell.swift in Sources */,
 				048D1BE024741BEE00FAC83A /* GalleryViewController.swift in Sources */,
+				0414A5A5247554A3007C6BAB /* FullPhotoLayout.swift in Sources */,
 				045B31AE24746B1D0086ABE2 /* TableLayout.swift in Sources */,
 				04CBDCBC246016FD004D6A8A /* NetworkDataFetcher.swift in Sources */,
 				04CBDCB82460155F004D6A8A /* NetworkService.swift in Sources */,

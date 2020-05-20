@@ -32,15 +32,6 @@ class GalleryViewController: UICollectionViewController {
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
 }
 
 // MARK: - UICollectionViewDataSource
@@ -53,13 +44,18 @@ extension GalleryViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.reuseId, for: indexPath) as! GalleryCollectionViewCell
-        
         cell.set(imageUrl: photos[indexPath.row].url)
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let layout = FullPhotoLayout()
+        layout.delegate = self
+        collectionView.setCollectionViewLayout(layout, animated: true)
+    }
 }
 
-extension GalleryViewController: TableLayoutDelegate {
+extension GalleryViewController: TableLayoutDelegate, FullPhotoLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, photoAtIndexPath indexPath: IndexPath) -> CGSize {
         let width = photos[indexPath.row].width
         let height = photos[indexPath.row].height
