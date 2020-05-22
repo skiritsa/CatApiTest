@@ -29,7 +29,14 @@ class TabBarViewController: UITabBarController {
         let galleryNav = UINavigationController(rootViewController: galleryVC)
         galleryNav.tabBarItem = galleryItem
         
-        let tabBarLists = [breedNav, galleryNav]
+        let breedQuizVC = BreedQuizViewController()
+        let quizItem = UITabBarItem()
+        quizItem.title = "Quiz"
+        quizItem.tag = 2
+        quizItem.image = UIImage(named: "quiz")
+        breedQuizVC.tabBarItem = quizItem
+        
+        let tabBarLists = [breedNav, galleryNav, breedQuizVC]
         
         viewControllers = tabBarLists
     }

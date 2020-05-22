@@ -414,7 +414,6 @@ class BreedDetailViewController: UIViewController {
         set()
     }
     
-    
     func set() {
         guard let breed = curentBreed else { return }
         fetcher.getImageUrl(breed) { (breedImageResponse) in
@@ -482,6 +481,30 @@ class BreedDetailViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+extension BreedDetailViewController {
+    func setImageViewHeight(image: BreedImageResponse) {
+        let photoHeight: Float = Float(image.height)
+        let photoWidth: Float = Float(image.width)
+        let ratio = CGFloat(photoHeight / photoWidth)
+        let screenWidth: CGFloat = UIScreen.main.bounds.width
+        let newPhotoHeight = screenWidth * ratio
+        imageViewHeightConstraint?.constant = CGFloat(newPhotoHeight)
+    }
+    
+    func attributedText(withBoldString: String?, string: String, font: UIFont) -> NSAttributedString {
+        guard let boldString = withBoldString else { return NSAttributedString()}
+        let boltAttributedString = NSMutableAttributedString(string: boldString,
+                                                             attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: font.pointSize)])
+        let fontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
+        let range = (boldString as NSString).range(of: string)
+        boltAttributedString.addAttributes(fontAttribute, range: range)
+        return boltAttributedString
+    }
+}
+
+extension BreedDetailViewController {
     //MARK: - Constraints
     func overlayFirstLayer() {
         view.addSubview(scrollView)
@@ -780,26 +803,5 @@ class BreedDetailViewController: UIViewController {
         wikiImageView.bottomAnchor.constraint(equalTo: socialView.bottomAnchor).isActive = true
         wikiImageView.widthAnchor.constraint(equalTo: socialView.heightAnchor).isActive = true
         
-    }
-}
-
-extension BreedDetailViewController {
-    func setImageViewHeight(image: BreedImageResponse) {
-        let photoHeight: Float = Float(image.height)
-        let photoWidth: Float = Float(image.width)
-        let ratio = CGFloat(photoHeight / photoWidth)
-        let screenWidth: CGFloat = UIScreen.main.bounds.width
-        let newPhotoHeight = screenWidth * ratio
-        imageViewHeightConstraint?.constant = CGFloat(newPhotoHeight)
-    }
-    
-    func attributedText(withBoldString: String?, string: String, font: UIFont) -> NSAttributedString {
-        guard let boldString = withBoldString else { return NSAttributedString()}
-        let boltAttributedString = NSMutableAttributedString(string: boldString,
-                                                             attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: font.pointSize)])
-        let fontAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
-        let range = (boldString as NSString).range(of: string)
-        boltAttributedString.addAttributes(fontAttribute, range: range)
-        return boltAttributedString
     }
 }

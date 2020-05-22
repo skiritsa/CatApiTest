@@ -17,7 +17,6 @@
 		048D1BE024741BEE00FAC83A /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D1BDF24741BEE00FAC83A /* GalleryViewController.swift */; };
 		048D1BE324741D1000FAC83A /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D1BE224741D1000FAC83A /* GalleryCollectionViewCell.swift */; };
 		04A8FD2D246D48C600ACB1A7 /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8FD2C246D48C600ACB1A7 /* BreedDetailViewController.swift */; };
-		04A8FD2F246D499A00ACB1A7 /* BreedDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A8FD2E246D499A00ACB1A7 /* BreedDetail.storyboard */; };
 		04A8FD32246D4F6F00ACB1A7 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8FD31246D4F6F00ACB1A7 /* WebImageView.swift */; };
 		04A8FD34246D51AF00ACB1A7 /* BreedImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8FD33246D51AF00ACB1A7 /* BreedImageResponse.swift */; };
 		04BA4073247015FC009F9669 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA4072247015FC009F9669 /* RatingControl.swift */; };
@@ -29,6 +28,12 @@
 		04CBDCD524605CC5004D6A8A /* BreedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCD424605CC5004D6A8A /* BreedCell.swift */; };
 		04CBDCD9246063A4004D6A8A /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCD8246063A4004D6A8A /* Constraints.swift */; };
 		04CBDCDB24607839004D6A8A /* BreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCDA24607839004D6A8A /* BreedViewController.swift */; };
+		04F6DAD12477DCAF00EC5DF5 /* BreedQuizPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACB2477DCAF00EC5DF5 /* BreedQuizPresenter.swift */; };
+		04F6DAD22477DCAF00EC5DF5 /* BreedQuizWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACC2477DCAF00EC5DF5 /* BreedQuizWorker.swift */; };
+		04F6DAD32477DCAF00EC5DF5 /* BreedQuizRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACD2477DCAF00EC5DF5 /* BreedQuizRouter.swift */; };
+		04F6DAD42477DCAF00EC5DF5 /* BreedQuizModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACE2477DCAF00EC5DF5 /* BreedQuizModels.swift */; };
+		04F6DAD52477DCAF00EC5DF5 /* BreedQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACF2477DCAF00EC5DF5 /* BreedQuizViewController.swift */; };
+		04F6DAD62477DCAF00EC5DF5 /* BreedQuizInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DAD02477DCAF00EC5DF5 /* BreedQuizInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +49,6 @@
 		048D1BDF24741BEE00FAC83A /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		048D1BE224741D1000FAC83A /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		04A8FD2C246D48C600ACB1A7 /* BreedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewController.swift; sourceTree = "<group>"; };
-		04A8FD2E246D499A00ACB1A7 /* BreedDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BreedDetail.storyboard; sourceTree = "<group>"; };
 		04A8FD31246D4F6F00ACB1A7 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		04A8FD33246D51AF00ACB1A7 /* BreedImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImageResponse.swift; sourceTree = "<group>"; };
 		04BA4072247015FC009F9669 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
@@ -56,6 +60,12 @@
 		04CBDCD424605CC5004D6A8A /* BreedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCell.swift; sourceTree = "<group>"; };
 		04CBDCD8246063A4004D6A8A /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		04CBDCDA24607839004D6A8A /* BreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedViewController.swift; sourceTree = "<group>"; };
+		04F6DACB2477DCAF00EC5DF5 /* BreedQuizPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizPresenter.swift; sourceTree = "<group>"; };
+		04F6DACC2477DCAF00EC5DF5 /* BreedQuizWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizWorker.swift; sourceTree = "<group>"; };
+		04F6DACD2477DCAF00EC5DF5 /* BreedQuizRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizRouter.swift; sourceTree = "<group>"; };
+		04F6DACE2477DCAF00EC5DF5 /* BreedQuizModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizModels.swift; sourceTree = "<group>"; };
+		04F6DACF2477DCAF00EC5DF5 /* BreedQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizViewController.swift; sourceTree = "<group>"; };
+		04F6DAD02477DCAF00EC5DF5 /* BreedQuizInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,7 @@
 				04CBDCD724606392004D6A8A /* Helpres */,
 				048569FD245DE89E000F9A48 /* LaunchScreen.storyboard */,
 				048569FB245DE89E000F9A48 /* Assets.xcassets */,
+				04F6DAD72477DCB500EC5DF5 /* BreedQuiz */,
 			);
 			path = CatApiTest;
 			sourceTree = "<group>";
@@ -126,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				04A8FD2C246D48C600ACB1A7 /* BreedDetailViewController.swift */,
-				04A8FD2E246D499A00ACB1A7 /* BreedDetail.storyboard */,
 			);
 			path = BreedDetail;
 			sourceTree = "<group>";
@@ -185,6 +195,19 @@
 				04A8FD30246D4F5A00ACB1A7 /* Views */,
 			);
 			path = Helpres;
+			sourceTree = "<group>";
+		};
+		04F6DAD72477DCB500EC5DF5 /* BreedQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				04F6DACF2477DCAF00EC5DF5 /* BreedQuizViewController.swift */,
+				04F6DAD02477DCAF00EC5DF5 /* BreedQuizInteractor.swift */,
+				04F6DACB2477DCAF00EC5DF5 /* BreedQuizPresenter.swift */,
+				04F6DACE2477DCAF00EC5DF5 /* BreedQuizModels.swift */,
+				04F6DACC2477DCAF00EC5DF5 /* BreedQuizWorker.swift */,
+				04F6DACD2477DCAF00EC5DF5 /* BreedQuizRouter.swift */,
+			);
+			path = BreedQuiz;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				048569FF245DE89E000F9A48 /* LaunchScreen.storyboard in Resources */,
-				04A8FD2F246D499A00ACB1A7 /* BreedDetail.storyboard in Resources */,
 				048569FC245DE89E000F9A48 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,9 +287,12 @@
 				045D642724767E06006798B7 /* TabBarViewController.swift in Sources */,
 				04CBDCBC246016FD004D6A8A /* NetworkDataFetcher.swift in Sources */,
 				04CBDCB82460155F004D6A8A /* NetworkService.swift in Sources */,
+				04F6DAD42477DCAF00EC5DF5 /* BreedQuizModels.swift in Sources */,
 				04A8FD32246D4F6F00ACB1A7 /* WebImageView.swift in Sources */,
 				04BA407524701BBB009F9669 /* Int + Extension.swift in Sources */,
+				04F6DAD52477DCAF00EC5DF5 /* BreedQuizViewController.swift in Sources */,
 				04BA4073247015FC009F9669 /* RatingControl.swift in Sources */,
+				04F6DAD12477DCAF00EC5DF5 /* BreedQuizPresenter.swift in Sources */,
 				04CBDCBA246015B8004D6A8A /* API.swift in Sources */,
 				04A8FD2D246D48C600ACB1A7 /* BreedDetailViewController.swift in Sources */,
 				04CBDCD9246063A4004D6A8A /* Constraints.swift in Sources */,
@@ -276,6 +301,9 @@
 				045D642B24769930006798B7 /* RowLayout.swift in Sources */,
 				04CBDCBF2460179E004D6A8A /* BreedResponse.swift in Sources */,
 				04CBDCDB24607839004D6A8A /* BreedViewController.swift in Sources */,
+				04F6DAD62477DCAF00EC5DF5 /* BreedQuizInteractor.swift in Sources */,
+				04F6DAD22477DCAF00EC5DF5 /* BreedQuizWorker.swift in Sources */,
+				04F6DAD32477DCAF00EC5DF5 /* BreedQuizRouter.swift in Sources */,
 				048569F3245DE89D000F9A48 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
