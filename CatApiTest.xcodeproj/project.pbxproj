@@ -35,6 +35,7 @@
 		04F6DAD52477DCAF00EC5DF5 /* BreedQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACF2477DCAF00EC5DF5 /* BreedQuizViewController.swift */; };
 		04F6DAD62477DCAF00EC5DF5 /* BreedQuizInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DAD02477DCAF00EC5DF5 /* BreedQuizInteractor.swift */; };
 		04F6DADF24781F6E00EC5DF5 /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DADE24781F6E00EC5DF5 /* ColorConstant.swift */; };
+		04F6DAE42478547300EC5DF5 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DAE32478547300EC5DF5 /* ErrorPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		04F6DACF2477DCAF00EC5DF5 /* BreedQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizViewController.swift; sourceTree = "<group>"; };
 		04F6DAD02477DCAF00EC5DF5 /* BreedQuizInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizInteractor.swift; sourceTree = "<group>"; };
 		04F6DADE24781F6E00EC5DF5 /* ColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstant.swift; sourceTree = "<group>"; };
+		04F6DAE32478547300EC5DF5 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				04BA407424701BBB009F9669 /* Int + Extension.swift */,
 				04F6DADE24781F6E00EC5DF5 /* ColorConstant.swift */,
 				04A8FD30246D4F5A00ACB1A7 /* Views */,
+				04F6DAE32478547300EC5DF5 /* ErrorPresenter.swift */,
 			);
 			path = Helpres;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				04F6DADF24781F6E00EC5DF5 /* ColorConstant.swift in Sources */,
 				048D1BE324741D1000FAC83A /* GalleryCollectionViewCell.swift in Sources */,
 				045D642B24769930006798B7 /* RowLayout.swift in Sources */,
+				04F6DAE42478547300EC5DF5 /* ErrorPresenter.swift in Sources */,
 				04CBDCBF2460179E004D6A8A /* BreedResponse.swift in Sources */,
 				04CBDCDB24607839004D6A8A /* BreedViewController.swift in Sources */,
 				04F6DAD62477DCAF00EC5DF5 /* BreedQuizInteractor.swift in Sources */,

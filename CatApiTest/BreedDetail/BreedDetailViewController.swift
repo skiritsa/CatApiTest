@@ -76,32 +76,40 @@ class BreedDetailViewController: UIViewController {
         return view
     }()
     
-    let vcaImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "vca")
-        return imageView
+    let vcaButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "vca"), for: .normal)
+        button.tag = 0
+        button.addTarget(self, action: #selector(moreInfoAction(_:)), for: .touchUpInside)
+        return button
     }()
     
-    let vetstreetImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "vetstreet")
-        return imageView
+    let vetstreetButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "vetstreet"), for: .normal)
+        button.tag = 1
+        button.addTarget(self, action: #selector(moreInfoAction(_:)), for: .touchUpInside)
+        return button
     }()
     
-    let cfaImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "cfa")
-        return imageView
+    let cfaButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "cfa"), for: .normal)
+        button.tag = 2
+        button.addTarget(self, action: #selector(moreInfoAction(_:)), for: .touchUpInside)
+        return button
     }()
     
-    let wikiImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "wiki")
-        return imageView
+    let wikiButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "wiki"), for: .normal)
+        button.tag = 3
+        button.addTarget(self, action: #selector(moreInfoAction(_:)), for: .touchUpInside)
+        return button
     }()
     
     let allPhotoButton: UIButton = {
@@ -485,6 +493,40 @@ class BreedDetailViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc func moreInfoAction(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            if (curentBreed.vcahospitalsUrl != nil) {
+                guard let url = URL(string: curentBreed.vcahospitalsUrl!) else { return }
+                UIApplication.shared.open(url, options: [:])
+            } else {
+                ErrorPresenter.showError(message: "URL not found", on: self)
+            }
+        case 1:
+            if (curentBreed.vetstreetUrl != nil) {
+                guard let url = URL(string: curentBreed.vetstreetUrl!) else { return }
+                UIApplication.shared.open(url, options: [:])
+            } else {
+                ErrorPresenter.showError(message: "URL not found", on: self)
+            }
+        case 2:
+            if (curentBreed.cfaUrl != nil) {
+                guard let url = URL(string: curentBreed.cfaUrl!) else { return }
+                UIApplication.shared.open(url, options: [:])
+            } else {
+                ErrorPresenter.showError(message: "URL not found", on: self)
+            }
+        case 3:
+            if (curentBreed.wikipediaUrl != nil) {
+                guard let url = URL(string: curentBreed.wikipediaUrl!) else { return }
+                UIApplication.shared.open(url, options: [:])
+            } else {
+                ErrorPresenter.showError(message: "URL not found", on: self)
+            }
+        default:
+            return
+        }
+    }
 }
 
 extension BreedDetailViewController {
@@ -701,7 +743,7 @@ extension BreedDetailViewController {
         //MARK: - childFriendlyRating constraints
         childFriendlyRating.centerYAnchor.constraint(equalTo: childFriendlyLabel.centerYAnchor).isActive = true
         childFriendlyRating.leadingAnchor.constraint(equalTo: childFriendlyLabel.trailingAnchor, constant: 20).isActive = true
-
+        
         //MARK: - dogFriendlyLabel constraints
         dogFriendlyLabel.topAnchor.constraint(equalTo: childFriendlyLabel.bottomAnchor ,constant: 10).isActive = true
         dogFriendlyLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
@@ -709,7 +751,7 @@ extension BreedDetailViewController {
         //MARK: - dogFriendlyRating constraints
         dogFriendlyRating.centerYAnchor.constraint(equalTo: dogFriendlyLabel.centerYAnchor).isActive = true
         dogFriendlyRating.leadingAnchor.constraint(equalTo: dogFriendlyLabel.trailingAnchor, constant: 20).isActive = true
-
+        
         //MARK: - energyLevelLabel constraints
         energyLevelLabel.topAnchor.constraint(equalTo: dogFriendlyLabel.bottomAnchor ,constant: 10).isActive = true
         energyLevelLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
@@ -717,7 +759,7 @@ extension BreedDetailViewController {
         //MARK: - energyLevelRating constraints
         energyLevelRating.centerYAnchor.constraint(equalTo: energyLevelLabel.centerYAnchor).isActive = true
         energyLevelRating.leadingAnchor.constraint(equalTo: energyLevelLabel.trailingAnchor, constant: 20).isActive = true
-
+        
         //MARK: - groomingLabel constraints
         groomingLabel.topAnchor.constraint(equalTo: energyLevelLabel.bottomAnchor ,constant: 10).isActive = true
         groomingLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
@@ -725,7 +767,7 @@ extension BreedDetailViewController {
         //MARK: - groomingRating constraints
         groomingRating.centerYAnchor.constraint(equalTo: groomingLabel.centerYAnchor).isActive = true
         groomingRating.leadingAnchor.constraint(equalTo: groomingLabel.trailingAnchor, constant: 20).isActive = true
-
+        
         //MARK: - healthIssuesLabel constraints
         healthIssuesLabel.topAnchor.constraint(equalTo: groomingLabel.bottomAnchor ,constant: 10).isActive = true
         healthIssuesLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
@@ -733,7 +775,7 @@ extension BreedDetailViewController {
         //MARK: - adaptabilityRating constraints
         healthIssuesRating.centerYAnchor.constraint(equalTo: healthIssuesLabel.centerYAnchor).isActive = true
         healthIssuesRating.leadingAnchor.constraint(equalTo: healthIssuesLabel.trailingAnchor, constant: 20).isActive = true
-
+        
         //MARK: - intelligenceLabel constraints
         intelligenceLabel.topAnchor.constraint(equalTo: healthIssuesLabel.bottomAnchor ,constant: 10).isActive = true
         intelligenceLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
@@ -741,7 +783,7 @@ extension BreedDetailViewController {
         //MARK: - intelligenceRating constraints
         intelligenceRating.centerYAnchor.constraint(equalTo: intelligenceLabel.centerYAnchor).isActive = true
         intelligenceRating.leadingAnchor.constraint(equalTo: intelligenceLabel.trailingAnchor, constant: 20).isActive = true
-
+        
         //MARK: - sheddingLevelLabel constraints
         sheddingLevelLabel.topAnchor.constraint(equalTo: intelligenceLabel.bottomAnchor ,constant: 10).isActive = true
         sheddingLevelLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
@@ -749,7 +791,7 @@ extension BreedDetailViewController {
         //MARK: - sheddingLevelRating constraints
         sheddingLevelRating.centerYAnchor.constraint(equalTo: sheddingLevelLabel.centerYAnchor).isActive = true
         sheddingLevelRating.leadingAnchor.constraint(equalTo: sheddingLevelLabel.trailingAnchor, constant: 20).isActive = true
-
+        
         //MARK: - socialNeedsLabel constraints
         socialNeedsLabel.topAnchor.constraint(equalTo: sheddingLevelLabel.bottomAnchor ,constant: 10).isActive = true
         socialNeedsLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
@@ -757,7 +799,7 @@ extension BreedDetailViewController {
         //MARK: - socialNeedsRating constraints
         socialNeedsRating.centerYAnchor.constraint(equalTo: socialNeedsLabel.centerYAnchor).isActive = true
         socialNeedsRating.leadingAnchor.constraint(equalTo: socialNeedsLabel.trailingAnchor, constant: 20).isActive = true
-
+        
         //MARK: - strangerFriendlyLabel constraints
         strangerFriendlyLabel.topAnchor.constraint(equalTo: socialNeedsLabel.bottomAnchor ,constant: 10).isActive = true
         strangerFriendlyLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
@@ -765,7 +807,7 @@ extension BreedDetailViewController {
         //MARK: - strangerFriendlyRating constraints
         strangerFriendlyRating.centerYAnchor.constraint(equalTo: strangerFriendlyLabel.centerYAnchor).isActive = true
         strangerFriendlyRating.leadingAnchor.constraint(equalTo: strangerFriendlyLabel.trailingAnchor, constant: 20).isActive = true
-
+        
         //MARK: - vocalisationLabel constraints
         vocalisationLabel.topAnchor.constraint(equalTo: strangerFriendlyLabel.bottomAnchor ,constant: 10).isActive = true
         vocalisationLabel.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
@@ -774,38 +816,38 @@ extension BreedDetailViewController {
         //MARK: - vocalisationRating constraints
         vocalisationRating.centerYAnchor.constraint(equalTo: vocalisationLabel.centerYAnchor).isActive = true
         vocalisationRating.leadingAnchor.constraint(equalTo: vocalisationLabel.trailingAnchor, constant: 20).isActive = true
-
+        
     }
     
     func overleyThirdLayerOnSocialView() {
-        socialView.addSubview(vcaImageView)
-        socialView.addSubview(vetstreetImageView)
-        socialView.addSubview(cfaImageView)
-        socialView.addSubview(wikiImageView)
+        socialView.addSubview(vcaButton)
+        socialView.addSubview(vetstreetButton)
+        socialView.addSubview(cfaButton)
+        socialView.addSubview(wikiButton)
         
         //MARK: - vcaImageView constraints
-        vcaImageView.topAnchor.constraint(equalTo: socialView.topAnchor).isActive = true
-        vcaImageView.leadingAnchor.constraint(equalTo: socialView.leadingAnchor).isActive = true
-        vcaImageView.bottomAnchor.constraint(equalTo: socialView.bottomAnchor).isActive = true
-        vcaImageView.widthAnchor.constraint(equalTo: socialView.heightAnchor, multiplier: 1.5).isActive = true
+        vcaButton.topAnchor.constraint(equalTo: socialView.topAnchor).isActive = true
+        vcaButton.leadingAnchor.constraint(equalTo: socialView.leadingAnchor).isActive = true
+        vcaButton.bottomAnchor.constraint(equalTo: socialView.bottomAnchor).isActive = true
+        vcaButton.widthAnchor.constraint(equalTo: socialView.heightAnchor, multiplier: 1.5).isActive = true
         
         //MARK: - vetstreetImageView constraints
-        vetstreetImageView.topAnchor.constraint(equalTo: socialView.topAnchor).isActive = true
-        vetstreetImageView.leadingAnchor.constraint(equalTo: vcaImageView.trailingAnchor, constant: 30).isActive = true
-        vetstreetImageView.bottomAnchor.constraint(equalTo: socialView.bottomAnchor).isActive = true
-        vetstreetImageView.widthAnchor.constraint(equalTo: socialView.heightAnchor).isActive = true
+        vetstreetButton.topAnchor.constraint(equalTo: socialView.topAnchor).isActive = true
+        vetstreetButton.leadingAnchor.constraint(equalTo: vcaButton.trailingAnchor, constant: 30).isActive = true
+        vetstreetButton.bottomAnchor.constraint(equalTo: socialView.bottomAnchor).isActive = true
+        vetstreetButton.widthAnchor.constraint(equalTo: socialView.heightAnchor).isActive = true
         
         //MARK: - cfaImageView constraints
-        cfaImageView.topAnchor.constraint(equalTo: socialView.topAnchor).isActive = true
-        cfaImageView.leadingAnchor.constraint(equalTo: vetstreetImageView.trailingAnchor, constant: 30).isActive = true
-        cfaImageView.bottomAnchor.constraint(equalTo: socialView.bottomAnchor).isActive = true
-        cfaImageView.widthAnchor.constraint(equalTo: socialView.heightAnchor).isActive = true
+        cfaButton.topAnchor.constraint(equalTo: socialView.topAnchor).isActive = true
+        cfaButton.leadingAnchor.constraint(equalTo: vetstreetButton.trailingAnchor, constant: 30).isActive = true
+        cfaButton.bottomAnchor.constraint(equalTo: socialView.bottomAnchor).isActive = true
+        cfaButton.widthAnchor.constraint(equalTo: socialView.heightAnchor).isActive = true
         
         //MARK: - wikiImageView constraints
-        wikiImageView.topAnchor.constraint(equalTo: socialView.topAnchor).isActive = true
-        wikiImageView.leadingAnchor.constraint(equalTo: cfaImageView.trailingAnchor, constant: 30).isActive = true
-        wikiImageView.bottomAnchor.constraint(equalTo: socialView.bottomAnchor).isActive = true
-        wikiImageView.widthAnchor.constraint(equalTo: socialView.heightAnchor).isActive = true
+        wikiButton.topAnchor.constraint(equalTo: socialView.topAnchor).isActive = true
+        wikiButton.leadingAnchor.constraint(equalTo: cfaButton.trailingAnchor, constant: 30).isActive = true
+        wikiButton.bottomAnchor.constraint(equalTo: socialView.bottomAnchor).isActive = true
+        wikiButton.widthAnchor.constraint(equalTo: socialView.heightAnchor).isActive = true
         
     }
 }
