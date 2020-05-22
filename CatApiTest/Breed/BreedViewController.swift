@@ -10,7 +10,13 @@ import UIKit
 
 class BreedViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        return tableView
+    }()
     
     let fetcher = NetworkDataFetcher()
     
@@ -18,10 +24,9 @@ class BreedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.backgroundColor = .clear
-        tableView.separatorStyle = .none
-        tableView.register(BreedCell.self, forCellReuseIdentifier: BreedCell.reuseId)
+        
+        title = "All Bread"
+        setTableView()
         
         fetcher.getBreed { (allBreedResponse) in
             guard let allBreedResponse = allBreedResponse else { return }
@@ -30,6 +35,16 @@ class BreedViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func setTableView() {
+        view.addSubview(tableView)
+        tableView.fillSuperview()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(BreedCell.self, forCellReuseIdentifier: BreedCell.reuseId)
     }
 }
 
@@ -47,7 +62,7 @@ extension BreedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = UIStoryboard(name: "BreedDetail", bundle: nil).instantiateViewController(identifier: "BreedDetail") as? BreedDetailViewController else { return }
+        let vc = BreedDetailViewController()
         vc.curentBreed = allBreed[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }

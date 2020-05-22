@@ -27,6 +27,7 @@ class BreedDetailViewController: UIViewController {
     
     let cardView: UIView = {
         let view = UIView()
+        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -404,6 +405,8 @@ class BreedDetailViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
         title = curentBreed.name
         overlayFirstLayer()
         overlaySecondLayer()
@@ -474,7 +477,7 @@ class BreedDetailViewController: UIViewController {
     }
     
     @objc func showBreedImageGallery() {
-        guard let vc = UIStoryboard(name: "GalleryViewController", bundle: nil).instantiateViewController(identifier: "GalleryViewController") as? GalleryViewController else { return }
+        let vc = GalleryViewController(forBreed: true)
         vc.set(breed: curentBreed)
         self.navigationController?.pushViewController(vc, animated: true)
     }
