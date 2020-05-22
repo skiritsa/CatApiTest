@@ -35,7 +35,9 @@ class GalleryViewController: UICollectionViewController {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = button
-        collectionView.backgroundColor = .white
+        self.navigationItem.rightBarButtonItem?.tintColor = .white
+        self.navigationController?.navigationBar.backgroundColor = ColorConstant.firstColor
+        collectionView.backgroundColor = ColorConstant.fourthColor
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         

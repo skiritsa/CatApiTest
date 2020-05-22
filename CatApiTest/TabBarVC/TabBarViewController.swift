@@ -13,12 +13,17 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tabBar.barTintColor = ColorConstant.firstColor
+        tabBar.unselectedItemTintColor = .white
+        tabBar.tintColor = ColorConstant.secondColor
+        
         let breedVC = BreedViewController()
         let breedItem = UITabBarItem()
         breedItem.title = "Breeds"
         breedItem.image = UIImage(named: "catPixel")
         breedItem.tag = 0
         let breedNav = UINavigationController(rootViewController: breedVC)
+        breedNav.navigationBar.barTintColor = ColorConstant.firstColor
         breedNav.tabBarItem = breedItem
         
         let galleryVC = GalleryViewController(forBreed: false)
@@ -27,16 +32,19 @@ class TabBarViewController: UITabBarController {
         galleryItem.image = UIImage(named: "gallery")
         galleryItem.tag = 1
         let galleryNav = UINavigationController(rootViewController: galleryVC)
+        galleryNav.navigationBar.barTintColor = ColorConstant.firstColor
         galleryNav.tabBarItem = galleryItem
         
         let breedQuizVC = BreedQuizViewController()
         let quizItem = UITabBarItem()
         quizItem.title = "Quiz"
-        quizItem.tag = 2
         quizItem.image = UIImage(named: "quiz")
-        breedQuizVC.tabBarItem = quizItem
+        quizItem.tag = 2
+        let quizNav = UINavigationController(rootViewController: breedQuizVC)
+        quizNav.navigationBar.barTintColor = ColorConstant.firstColor
+        quizNav.tabBarItem = quizItem
         
-        let tabBarLists = [breedNav, galleryNav, breedQuizVC]
+        let tabBarLists = [breedNav, galleryNav, quizNav]
         
         viewControllers = tabBarLists
     }

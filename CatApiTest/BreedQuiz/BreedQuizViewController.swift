@@ -37,6 +37,7 @@ class BreedQuizViewController: UIViewController, BreedQuizDisplayLogic {
         label.font = .systemFont(ofSize: 22, weight: .bold)
         label.numberOfLines = 1
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         label.isHidden = true
         return label
     }()
@@ -48,6 +49,7 @@ class BreedQuizViewController: UIViewController, BreedQuizDisplayLogic {
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
         stackView.spacing = 10
+        stackView.isHidden = true
         return stackView
     }()
     
@@ -98,7 +100,8 @@ class BreedQuizViewController: UIViewController, BreedQuizDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorConstant.fourthColor
+        title = "Quiz"
         
         setConstraints()
         interactor?.makeRequest(request: .getBreed)
@@ -138,7 +141,7 @@ class BreedQuizViewController: UIViewController, BreedQuizDisplayLogic {
         var counter = 0
         for text in array {
             let button = UIButton()
-            button.backgroundColor = .darkGray
+            button.backgroundColor = ColorConstant.firstColor
             button.layer.cornerRadius = 10
             button.clipsToBounds = true
             button.setTitle(text, for: .normal)
@@ -154,10 +157,14 @@ class BreedQuizViewController: UIViewController, BreedQuizDisplayLogic {
     @objc private func checkResponse(_ sender: UIButton) {
         for button in buttonArray {
             if button.titleLabel?.text == currentBreed?.name {
-                button.backgroundColor = .green
+                button.backgroundColor = ColorConstant.thirdColor
             } else {
-                button.isEnabled = false
-                button.backgroundColor = .gray
+                if button == sender {
+                    sender.backgroundColor = ColorConstant.badAnswerColor
+                } else {
+                    button.isEnabled = false
+                    button.backgroundColor = ColorConstant.otherAnswerColor
+                }
             }
         }
         reloadQuizButton.isHidden = false
@@ -178,7 +185,7 @@ extension BreedQuizViewController {
         view.addSubview(loader)
         view.addSubview(reloadQuizButton)
         
-        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
+        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 56).isActive = true
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
@@ -187,17 +194,17 @@ extension BreedQuizViewController {
         label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         
-        stackView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 30).isActive = true
+        stackView.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        stackView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: reloadQuizButton.topAnchor, constant: -15).isActive = true
         
         loader.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         loader.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        reloadQuizButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20).isActive = true
         reloadQuizButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         reloadQuizButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         reloadQuizButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        reloadQuizButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15).isActive = true
     }
 }

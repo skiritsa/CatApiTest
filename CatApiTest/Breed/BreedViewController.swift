@@ -13,9 +13,16 @@ class BreedViewController: UIViewController {
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = ColorConstant.fourthColor
         tableView.separatorStyle = .none
         return tableView
+    }()
+    
+    let loader: UIActivityIndicatorView = {
+        let loader = UIActivityIndicatorView()
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        loader.hidesWhenStopped = true
+        return loader
     }()
     
     let fetcher = NetworkDataFetcher()
@@ -27,14 +34,25 @@ class BreedViewController: UIViewController {
         
         title = "All Bread"
         setTableView()
+        setLoader()
         
         fetcher.getBreed { (allBreedResponse) in
             guard let allBreedResponse = allBreedResponse else { return }
             self.allBreed = allBreedResponse
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.loader.stopAnimating()
             }
         }
+    }
+    
+    func setLoader() {
+        view.addSubview(loader)
+        
+        loader.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loader.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        loader.startAnimating()
     }
     
     func setTableView() {

@@ -16,7 +16,7 @@ final class BreedCell: UITableViewCell {
     let cardView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = ColorConstant.thirdColor
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
         return view

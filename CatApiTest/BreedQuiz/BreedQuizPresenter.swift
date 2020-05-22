@@ -40,6 +40,7 @@ class BreedQuizPresenter: BreedQuizPresentationLogic {
             }
         }
         stringArray.append(currentBreed.name)
+        stringArray.shuffle()
         return stringArray
     }
 }

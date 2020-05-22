@@ -19,7 +19,7 @@ class FullPhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorConstant.fourthColor
         view.addSubview(imageView)
         
         imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

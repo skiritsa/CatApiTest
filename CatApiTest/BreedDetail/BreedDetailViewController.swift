@@ -27,7 +27,7 @@ class BreedDetailViewController: UIViewController {
     
     let cardView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -55,6 +55,7 @@ class BreedDetailViewController: UIViewController {
         textView.isSelectable = true
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
+        textView.backgroundColor = ColorConstant.fourthColor
         
         let padding = textView.textContainer.lineFragmentPadding
         textView.textContainerInset = UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding)
@@ -107,7 +108,9 @@ class BreedDetailViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("View all photo", for: .normal)
-        button.backgroundColor = .gray
+        button.backgroundColor = ColorConstant.thirdColor
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
         button.addTarget(self, action: #selector(showBreedImageGallery), for: .touchUpInside)
         return button
     }()
@@ -406,7 +409,8 @@ class BreedDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        self.navigationController?.navigationBar.tintColor = ColorConstant.thirdColor
+        view.backgroundColor = ColorConstant.fourthColor
         title = curentBreed.name
         overlayFirstLayer()
         overlaySecondLayer()
@@ -594,8 +598,8 @@ extension BreedDetailViewController {
         
         //MARK: - allPhotoButton constraints
         allPhotoButton.topAnchor.constraint(equalTo: socialView.bottomAnchor, constant: 20).isActive = true
-        allPhotoButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10).isActive = true
-        allPhotoButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -10).isActive = true
+        allPhotoButton.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 40).isActive = true
+        allPhotoButton.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -40).isActive = true
         allPhotoButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         //MARK: - characteristicsLabel constraints
