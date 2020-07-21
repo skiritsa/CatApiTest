@@ -25,63 +25,52 @@ class BreedViewController: UIViewController {
         return loader
     }()
     
-    let fetcher = NetworkDataFetcher()
-    
-    var allBreed: [BreedResponse] = []
+    private var viewModel: TableViewViewModelType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel = ViewModel()
         title = "All Bread"
+        
         setTableView()
         setLoader()
         
-        fetcher.getBreed { (allBreedResponse) in
-            guard let allBreedResponse = allBreedResponse else { return }
-            self.allBreed = allBreedResponse
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.loader.stopAnimating()
-            }
+        viewModel?.getAllBreed {
+            self.tableView.reloadData()
+            self.loader.stopAnimating()
+            self.tableView.separatorStyle = .singleLine
         }
     }
+}
+
+extension BreedViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.numberOfRows() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: BreedCell.reuseId) as? BreedCell
+        guard let viewModel = viewModel, let breedCell = cell else { return UITableViewCell()}
+        breedCell.viewModel = viewModel.cellViewModel(for: indexPath)
+        return breedCell
+    }
+}
+
+extension BreedViewController {
     
     func setLoader() {
         view.addSubview(loader)
-        
         loader.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loader.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
         loader.startAnimating()
     }
     
     func setTableView() {
         view.addSubview(tableView)
         tableView.fillSuperview()
-        
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.register(BreedCell.self, forCellReuseIdentifier: BreedCell.reuseId)
-    }
-}
-
-extension BreedViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allBreed.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BreedCell.reuseId) as! BreedCell
-        
-        let breed = allBreed[indexPath.row]
-        cell.set(breed: breed)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = BreedDetailViewController()
-        vc.curentBreed = allBreed[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

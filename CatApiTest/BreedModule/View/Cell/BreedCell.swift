@@ -12,13 +12,18 @@ import UIKit
 final class BreedCell: UITableViewCell {
     static let reuseId = "BreedCell"
     
+    weak var viewModel: TableViewCellViewModelType? {
+        willSet(viewModel) {
+            guard let viewModel = viewModel else { return }
+            breedNameLabel.text = viewModel.name
+            originNameLabel.text = viewModel.origin
+        }
+    }
+    
     //First layer
     let cardView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = ColorConstant.thirdColor
-        view.layer.cornerRadius = 10
-        view.clipsToBounds = true
         return view
     }()
     
@@ -33,7 +38,7 @@ final class BreedCell: UITableViewCell {
     let catImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "cat")
+        imageView.image = UIImage(named: "catPixel")
         return imageView
     }()
     
@@ -65,11 +70,7 @@ final class BreedCell: UITableViewCell {
         overlayFirstLayer()
         overlaySecondLayer()
     }
-    
-    func set(breed: BreedResponse) {
-        breedNameLabel.text = breed.name
-        originNameLabel.text = breed.origin
-    }
+
     private func overlaySecondLayer() {
         cardView.addSubview(breedNameLabel)
         cardView.addSubview(catImageView)
@@ -87,30 +88,23 @@ final class BreedCell: UITableViewCell {
         breedNameLabel.leadingAnchor.constraint(equalTo: catImageView.trailingAnchor, constant: 5).isActive = true
         breedNameLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -5).isActive = true
         breedNameLabel.heightAnchor.constraint(equalTo: catImageView.heightAnchor).isActive = true
-        
+
         //originImageView constraints
         originImageView.topAnchor.constraint(equalTo: catImageView.bottomAnchor, constant: 5).isActive = true
         originImageView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 5).isActive = true
-        originImageView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -5).isActive = true
         originImageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
         originImageView.widthAnchor.constraint(equalToConstant: 25).isActive = true
         
         //originNameLabel constraints
-        originNameLabel.topAnchor.constraint(equalTo: breedNameLabel.bottomAnchor, constant: 5).isActive = true
+        originNameLabel.topAnchor.constraint(equalTo: breedNameLabel.bottomAnchor, constant: 10).isActive = true
         originNameLabel.leadingAnchor.constraint(equalTo: originImageView.trailingAnchor, constant: 5).isActive = true
         originNameLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -5).isActive = true
-        originNameLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -5).isActive = true
-        originNameLabel.heightAnchor.constraint(equalTo: originImageView.heightAnchor).isActive = true
-        
+        originNameLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10).isActive = true
     }
     
     private func overlayFirstLayer() {
         addSubview(cardView)
-        
-        cardView.fillSuperview(padding: UIEdgeInsets(top: 5,
-                                                     left: 8,
-                                                     bottom: 5,
-                                                     right: 8))
+        cardView.fillSuperview()
     }
     
     required init?(coder: NSCoder) {
