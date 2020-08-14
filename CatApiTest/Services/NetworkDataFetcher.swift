@@ -10,6 +10,7 @@ import Foundation
 
 protocol DataFetcher {
     func getBreed(response: @escaping ([BreedResponse]?) -> Void)
+    func getImageUrl(_ forBreed: BreedResponse?, response: @escaping ([BreedImageResponse]?) -> Void)
 }
 
 struct NetworkDataFetcher: DataFetcher {
@@ -33,7 +34,7 @@ struct NetworkDataFetcher: DataFetcher {
     }
     
     func getImageUrl(_ forBreed: BreedResponse?, response: @escaping ([BreedImageResponse]?) -> Void) {
-        var params = ["size": "full", "order": "ASC", "limit": "50"]
+        var params = ["size": "full", "order": "ASC"]
         
         if let breed = forBreed {
         params["breed_id"] = breed.id

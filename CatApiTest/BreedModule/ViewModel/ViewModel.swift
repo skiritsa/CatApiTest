@@ -10,7 +10,6 @@ import Foundation
 
 class ViewModel: TableViewViewModelType {
     
-    private var selectedIndexPath: IndexPath?
     let fetcher: DataFetcher
     var allBreed: [BreedResponse] = []
     
@@ -36,7 +35,7 @@ class ViewModel: TableViewViewModelType {
         return TableViewCellViewModel(breed: allBreed[indexPath.row])
     }
     
-    func selectRow(at indexPath: IndexPath) {
-        self.selectedIndexPath = indexPath
+    func viewModelForSelectedRow(at indexPath: IndexPath) -> DetailViewModel? {
+        return DetailViewModel(breed: allBreed[indexPath.row])
     }
 }

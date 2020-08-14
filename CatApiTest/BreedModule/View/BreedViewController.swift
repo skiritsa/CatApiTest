@@ -9,7 +9,7 @@
 import UIKit
 
 class BreedViewController: UIViewController {
-
+    
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +54,13 @@ extension BreedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let viewModel = viewModel, let breedCell = cell else { return UITableViewCell()}
         breedCell.viewModel = viewModel.cellViewModel(for: indexPath)
         return breedCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewModel = viewModel,
+            let detailViewModel = viewModel.viewModelForSelectedRow(at: indexPath) else { return }
+            let detailVC = DetailViewController(viewModel: detailViewModel)
+            navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
