@@ -56,11 +56,6 @@ final class BreedCell: UITableViewCell {
         return imageView
     }()
     
-    override func prepareForReuse() {
-        breedNameLabel.text = nil
-        originNameLabel.text = nil
-    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

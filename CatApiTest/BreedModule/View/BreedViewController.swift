@@ -25,17 +25,17 @@ class BreedViewController: UIViewController {
         return loader
     }()
     
-    private var viewModel: TableViewViewModelType?
+    var viewModel: TableViewViewModelType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = ViewModel()
+//        viewModel = ViewModel()
         title = "All Bread"
         
         setTableView()
         setLoader()
-        
+     
         viewModel?.getAllBreed {
             self.tableView.reloadData()
             self.loader.stopAnimating()
