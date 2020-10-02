@@ -18,7 +18,7 @@ class DetailImageViewCell: UITableViewCell {
         }
     }
     
-    let catImageView: WebImageView = {
+    var catImageView: WebImageView = {
         let imageView = WebImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit

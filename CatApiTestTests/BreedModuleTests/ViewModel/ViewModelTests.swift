@@ -11,53 +11,64 @@ import XCTest
 class ViewModelTests: XCTestCase {
     
     var sut: ViewModel!
-
+    
     override func setUpWithError() throws {
         try super.setUpWithError()
         sut = ViewModel()
     }
-
+    
     override func tearDownWithError() throws {
         sut = nil
         try super.tearDownWithError()
     }
-
-
+    
+    
     func testInitViewModelWithNetworkDataFetcher() {
         XCTAssertNotNil(sut.fetcher)
     }
     
-    func configViewModel() {
+    func configViewModel(completion: @escaping () -> Void) {
         sut = ViewModel(fetcher: MockFetcher())
-        sut.getAllBreed {}
+        let dataExpectation = expectation(description: "Get data")
+        sut.getAllBreed {
+            dataExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10) { _ in
+            completion()
+        }
     }
     func testViewModelGetAllBreed() {
-        configViewModel()
-        XCTAssertTrue(self.sut.allBreed.count == 2)
+        configViewModel {
+            XCTAssertEqual(self.sut.allBreed.count, (self.sut.fetcher as! MockFetcher).allBreed.count)
+        }
     }
     
     func testViewModelGetDataAndReturnNumberOfRows() {
-        configViewModel()
-        XCTAssertEqual(sut.allBreed.count, sut.numberOfRows())
+        configViewModel {
+            XCTAssertEqual(self.sut.allBreed.count, self.sut.numberOfRows())
+        }
     }
     
     func testViewModelCreateCellViewModel() {
-        configViewModel()
-        let indexPath = IndexPath(row: 0, section: 0)
-        let cellViewModel = sut.cellViewModel(for: indexPath)
-        
-        if let cellViewModel = cellViewModel {
-            XCTAssertTrue(cellViewModel is TableViewCellViewModel)
+        configViewModel {
+            let indexPath = IndexPath(row: 0, section: 0)
+            let cellViewModel = self.sut.cellViewModel(for: indexPath)
+            
+            if let cellViewModel = cellViewModel {
+                XCTAssertTrue(cellViewModel is TableViewCellViewModel)
+            }
         }
     }
     
     func testViewModelCreateDetailViewModel() {
-        configViewModel()
-        let indexPath = IndexPath(row: 0, section: 0)
-        let cellViewModel = sut.viewModelForSelectedRow(at: indexPath)
-        
-        if let cellViewModel = cellViewModel {
-            XCTAssertTrue(cellViewModel is DetailViewModel)
+        configViewModel { 
+            let indexPath = IndexPath(row: 0, section: 0)
+            let cellViewModel = self.sut.viewModelForSelectedRow(at: indexPath)
+            
+            if let cellViewModel = cellViewModel {
+                XCTAssertTrue(cellViewModel is DetailViewModel)
+            }
         }
     }
 }
@@ -65,18 +76,28 @@ class ViewModelTests: XCTestCase {
 class MockFetcher: DataFetcher {
     
     var allBreed: [BreedResponse] = []
+    var imageResponse: [BreedImageResponse] = []
+    let networkFetcher = NetworkDataFetcher()
     
     func getBreed(response: @escaping ([BreedResponse]?) -> Void) {
-        let breedItem = BreedResponse(weight: .init(imperial: "10", metric: "10"), id: "abys", name: "Abys", cfaUrl: nil, vetstreetUrl: nil, vcahospitalsUrl: nil, temperament: "Foo", origin: "Bar", countryCodes: "Baz", countryCode: "Foo", description: "Foo", lifeSpan: "Foo", indoor: 1, lap: nil, altNames: "Foo", adaptability: 1, affectionLevel: 1, childFriendly: 1, dogFriendly: 1, energyLevel: 1, grooming: 1, healthIssues: 1, intelligence: 1, sheddingLevel: 1, socialNeeds: 1, strangerFriendly: 1, vocalisation: 1, experimental: 1, hairless: 1, natural: 1, rare: 1, rex: 1, suppressedTail: 1, shortLegs: 1, wikipediaUrl: nil, hypoallergenic: 1, catFriendly: nil, bidability: nil)
-        
-        allBreed.append(breedItem)
-        allBreed.append(breedItem)
-
-        response(allBreed)
+        networkFetcher.getBreed { breedResponse in
+            if let breedResponse = breedResponse {
+                self.allBreed = breedResponse
+                response(breedResponse)
+            }
+        }
     }
     
     func getImageUrl(_ forBreed: BreedResponse?, response: @escaping ([BreedImageResponse]?) -> Void) {
-        response(nil)
+        
+        networkFetcher.getBreed { [weak self] (breed) in
+            self?.networkFetcher.getImageUrl(breed?.first) { imageResponse in
+                if let imageResponse = imageResponse {
+                    self?.imageResponse = imageResponse
+                    response(imageResponse)
+                }
+            }
+        }
     }
     
     

@@ -11,14 +11,14 @@ import UIKit
 
 class DetailViewModel: DetailViewModelType {
     
-    private var breed: BreedResponse
-    private var fetcher: DataFetcher
+    var breed: BreedResponse
+    var fetcher: DataFetcher
     
     var allCells = [DetailCellViewModelType]()
     
     var imageRatio: CGFloat = 0
     
-    private var imageURL: String = ""
+    var imageURL: String = ""
     
     func numberOfRows() -> Int {
         return allCells.count
