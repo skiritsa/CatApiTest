@@ -18,6 +18,9 @@ class TabBarViewController: UITabBarController {
         tabBar.tintColor = ColorConstant.secondColor
         
         let breedVC = BreedViewController()
+        let viewModel = ViewModel()
+        breedVC.viewModel = viewModel
+        
         let breedItem = UITabBarItem()
         breedItem.title = "Breeds"
         breedItem.image = UIImage(named: "catPixel")
@@ -36,6 +39,8 @@ class TabBarViewController: UITabBarController {
         galleryNav.tabBarItem = galleryItem
         
         let breedQuizVC = BreedQuizViewController()
+        let quizViewModel = BreedQuizViewModel()
+        breedQuizVC.viewModel = quizViewModel
         let quizItem = UITabBarItem()
         quizItem.title = "Quiz"
         quizItem.image = UIImage(named: "quiz")

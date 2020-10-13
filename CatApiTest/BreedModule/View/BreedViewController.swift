@@ -30,7 +30,6 @@ class BreedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        viewModel = ViewModel()
         title = "All Bread"
         
         setTableView()

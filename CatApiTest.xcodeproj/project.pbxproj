@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0400C35C2528A7BA00767FFA /* BreedQuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B706D2528A40F00821522 /* BreedQuizData.swift */; };
 		04035A0925277F07008B2353 /* DetailTextViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04035A0825277F07008B2353 /* DetailTextViewCellTests.swift */; };
 		04035A0F25278221008B2353 /* DetailDescriptionViewCelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04035A0E25278221008B2353 /* DetailDescriptionViewCelTests.swift */; };
 		04035A13252783D9008B2353 /* DetailImageViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04035A12252783D9008B2353 /* DetailImageViewCellTests.swift */; };
+		040B705C25285DA100821522 /* BreedQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B705B25285DA100821522 /* BreedQuizViewModel.swift */; };
+		040B7063252860EC00821522 /* QuizViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B7062252860EC00821522 /* QuizViewModelTests.swift */; };
+		040B707C2528A66600821522 /* BreedQuizViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B707B2528A66600821522 /* BreedQuizViewModelType.swift */; };
 		043D3B2825025D8D007D3322 /* CatApiTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D3B2725025D8D007D3322 /* CatApiTestTests.swift */; };
 		043D3B3425025E4B007D3322 /* BreedCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D3B3325025E4B007D3322 /* BreedCellTests.swift */; };
+		044140132534924A005400A0 /* QuizViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044140122534924A005400A0 /* QuizViewTests.swift */; };
 		0455405024C624D80007096B /* TableViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455404F24C624D80007096B /* TableViewViewModelType.swift */; };
 		0455405224C624FC0007096B /* TableViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455405124C624FC0007096B /* TableViewCellViewModelType.swift */; };
 		0455405424C6253E0007096B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455405324C6253E0007096B /* ViewModel.swift */; };
 		0455405624C6F3430007096B /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455405524C6F3430007096B /* TableViewCellViewModel.swift */; };
+		0456059F253593C7007440BE /* BreedQuizViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0456059E253593C7007440BE /* BreedQuizViewControllerTests.swift */; };
 		045B31AE24746B1D0086ABE2 /* TableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045B31AD24746B1D0086ABE2 /* TableLayout.swift */; };
 		045C38C22507639E0027028A /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C38C12507639E0027028A /* ViewModelTests.swift */; };
 		045C38C42507A2650027028A /* TableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C38C32507A2650027028A /* TableViewCellViewModelTests.swift */; };
@@ -51,15 +57,12 @@
 		04CBDCDB24607839004D6A8A /* BreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CBDCDA24607839004D6A8A /* BreedViewController.swift */; };
 		04E121B824D2C20C00309AFA /* DetailTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E121B724D2C20C00309AFA /* DetailTextViewCell.swift */; };
 		04E121BA24D9AF0100309AFA /* DetailCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E121B924D9AF0100309AFA /* DetailCellViewModelType.swift */; };
+		04E275F0252B3AE3008F9B59 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E275EF252B3AE3008F9B59 /* QuizView.swift */; };
+		04E275F4252B3B02008F9B59 /* QuizView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E275F3252B3B02008F9B59 /* QuizView + Extension.swift */; };
+		04E87024252B30DB0013D1C9 /* BreedQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E87023252B30DB0013D1C9 /* BreedQuizViewController.swift */; };
 		04F5B26924DFF4DB002B9B6E /* DetailTextCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5B26824DFF4DB002B9B6E /* DetailTextCellViewModel.swift */; };
 		04F5B26B24E0036B002B9B6E /* DetailDescriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5B26A24E0036B002B9B6E /* DetailDescriptionViewCell.swift */; };
 		04F5B26D24E00575002B9B6E /* DetailDescriptionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5B26C24E00575002B9B6E /* DetailDescriptionCellViewModel.swift */; };
-		04F6DAD12477DCAF00EC5DF5 /* BreedQuizPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACB2477DCAF00EC5DF5 /* BreedQuizPresenter.swift */; };
-		04F6DAD22477DCAF00EC5DF5 /* BreedQuizWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACC2477DCAF00EC5DF5 /* BreedQuizWorker.swift */; };
-		04F6DAD32477DCAF00EC5DF5 /* BreedQuizRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACD2477DCAF00EC5DF5 /* BreedQuizRouter.swift */; };
-		04F6DAD42477DCAF00EC5DF5 /* BreedQuizModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACE2477DCAF00EC5DF5 /* BreedQuizModels.swift */; };
-		04F6DAD52477DCAF00EC5DF5 /* BreedQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DACF2477DCAF00EC5DF5 /* BreedQuizViewController.swift */; };
-		04F6DAD62477DCAF00EC5DF5 /* BreedQuizInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DAD02477DCAF00EC5DF5 /* BreedQuizInteractor.swift */; };
 		04F6DADF24781F6E00EC5DF5 /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DADE24781F6E00EC5DF5 /* ColorConstant.swift */; };
 		04F6DAE42478547300EC5DF5 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6DAE32478547300EC5DF5 /* ErrorPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -78,14 +81,20 @@
 		04035A0825277F07008B2353 /* DetailTextViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextViewCellTests.swift; sourceTree = "<group>"; };
 		04035A0E25278221008B2353 /* DetailDescriptionViewCelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionViewCelTests.swift; sourceTree = "<group>"; };
 		04035A12252783D9008B2353 /* DetailImageViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageViewCellTests.swift; sourceTree = "<group>"; };
+		040B705B25285DA100821522 /* BreedQuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizViewModel.swift; sourceTree = "<group>"; };
+		040B7062252860EC00821522 /* QuizViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModelTests.swift; sourceTree = "<group>"; };
+		040B706D2528A40F00821522 /* BreedQuizData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizData.swift; sourceTree = "<group>"; };
+		040B707B2528A66600821522 /* BreedQuizViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizViewModelType.swift; sourceTree = "<group>"; };
 		043D3B2525025D8D007D3322 /* CatApiTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatApiTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		043D3B2725025D8D007D3322 /* CatApiTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatApiTestTests.swift; sourceTree = "<group>"; };
 		043D3B2925025D8D007D3322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043D3B3325025E4B007D3322 /* BreedCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCellTests.swift; sourceTree = "<group>"; };
+		044140122534924A005400A0 /* QuizViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewTests.swift; sourceTree = "<group>"; };
 		0455404F24C624D80007096B /* TableViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelType.swift; sourceTree = "<group>"; };
 		0455405124C624FC0007096B /* TableViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelType.swift; sourceTree = "<group>"; };
 		0455405324C6253E0007096B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		0455405524C6F3430007096B /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
+		0456059E253593C7007440BE /* BreedQuizViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizViewControllerTests.swift; sourceTree = "<group>"; };
 		045B31AD24746B1D0086ABE2 /* TableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLayout.swift; sourceTree = "<group>"; };
 		045C38C12507639E0027028A /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		045C38C32507A2650027028A /* TableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModelTests.swift; sourceTree = "<group>"; };
@@ -123,15 +132,12 @@
 		04CBDCDA24607839004D6A8A /* BreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedViewController.swift; sourceTree = "<group>"; };
 		04E121B724D2C20C00309AFA /* DetailTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextViewCell.swift; sourceTree = "<group>"; };
 		04E121B924D9AF0100309AFA /* DetailCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCellViewModelType.swift; sourceTree = "<group>"; };
+		04E275EF252B3AE3008F9B59 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		04E275F3252B3B02008F9B59 /* QuizView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuizView + Extension.swift"; sourceTree = "<group>"; };
+		04E87023252B30DB0013D1C9 /* BreedQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizViewController.swift; sourceTree = "<group>"; };
 		04F5B26824DFF4DB002B9B6E /* DetailTextCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextCellViewModel.swift; sourceTree = "<group>"; };
 		04F5B26A24E0036B002B9B6E /* DetailDescriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionViewCell.swift; sourceTree = "<group>"; };
 		04F5B26C24E00575002B9B6E /* DetailDescriptionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionCellViewModel.swift; sourceTree = "<group>"; };
-		04F6DACB2477DCAF00EC5DF5 /* BreedQuizPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizPresenter.swift; sourceTree = "<group>"; };
-		04F6DACC2477DCAF00EC5DF5 /* BreedQuizWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizWorker.swift; sourceTree = "<group>"; };
-		04F6DACD2477DCAF00EC5DF5 /* BreedQuizRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizRouter.swift; sourceTree = "<group>"; };
-		04F6DACE2477DCAF00EC5DF5 /* BreedQuizModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizModels.swift; sourceTree = "<group>"; };
-		04F6DACF2477DCAF00EC5DF5 /* BreedQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizViewController.swift; sourceTree = "<group>"; };
-		04F6DAD02477DCAF00EC5DF5 /* BreedQuizInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedQuizInteractor.swift; sourceTree = "<group>"; };
 		04F6DADE24781F6E00EC5DF5 /* ColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstant.swift; sourceTree = "<group>"; };
 		04F6DAE32478547300EC5DF5 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,11 +170,91 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		040B705825285D5C00821522 /* BreedQuizModule */ = {
+			isa = PBXGroup;
+			children = (
+				040B707A2528A63A00821522 /* Protocols */,
+				040B70752528A5B700821522 /* Model */,
+				040B705A25285D7D00821522 /* ViewModel */,
+				040B705925285D7600821522 /* View */,
+			);
+			path = BreedQuizModule;
+			sourceTree = "<group>";
+		};
+		040B705925285D7600821522 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04E87023252B30DB0013D1C9 /* BreedQuizViewController.swift */,
+				04E275EF252B3AE3008F9B59 /* QuizView.swift */,
+				04E275F3252B3B02008F9B59 /* QuizView + Extension.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		040B705A25285D7D00821522 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				040B705B25285DA100821522 /* BreedQuizViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		040B705F25285DA800821522 /* BreedQuizModueTests */ = {
+			isa = PBXGroup;
+			children = (
+				040B706C2528A3F500821522 /* Model */,
+				040B7061252860D400821522 /* ViewModel */,
+				040B7060252860CC00821522 /* View */,
+			);
+			path = BreedQuizModueTests;
+			sourceTree = "<group>";
+		};
+		040B7060252860CC00821522 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				044140122534924A005400A0 /* QuizViewTests.swift */,
+				0456059E253593C7007440BE /* BreedQuizViewControllerTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		040B7061252860D400821522 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				040B7062252860EC00821522 /* QuizViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		040B706C2528A3F500821522 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		040B70752528A5B700821522 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				040B706D2528A40F00821522 /* BreedQuizData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		040B707A2528A63A00821522 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				040B707B2528A66600821522 /* BreedQuizViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		043D3B2625025D8D007D3322 /* CatApiTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				04C9C3E9250A63C7000F0458 /* BreedDetailModuleTests */,
 				043D3B2F25025E16007D3322 /* BreedModuleTests */,
+				04C9C3E9250A63C7000F0458 /* BreedDetailModuleTests */,
+				040B705F25285DA800821522 /* BreedQuizModueTests */,
 				043D3B2725025D8D007D3322 /* CatApiTestTests.swift */,
 				043D3B2925025D8D007D3322 /* Info.plist */,
 			);
@@ -342,11 +428,11 @@
 				045D642524767DCE006798B7 /* TabBarVC */,
 				04CBDCD024603A76004D6A8A /* BreedModule */,
 				0466FF4B24C8438C00F262E5 /* BreedDetailModule */,
+				040B705825285D5C00821522 /* BreedQuizModule */,
 				048D1BDC24741B7800FAC83A /* GalleryVC */,
 				04CBDCD724606392004D6A8A /* Helpres */,
 				048569FD245DE89E000F9A48 /* LaunchScreen.storyboard */,
 				048569FB245DE89E000F9A48 /* Assets.xcassets */,
-				04F6DAD72477DCB500EC5DF5 /* BreedQuiz */,
 			);
 			path = CatApiTest;
 			sourceTree = "<group>";
@@ -438,19 +524,6 @@
 			path = Helpres;
 			sourceTree = "<group>";
 		};
-		04F6DAD72477DCB500EC5DF5 /* BreedQuiz */ = {
-			isa = PBXGroup;
-			children = (
-				04F6DACF2477DCAF00EC5DF5 /* BreedQuizViewController.swift */,
-				04F6DAD02477DCAF00EC5DF5 /* BreedQuizInteractor.swift */,
-				04F6DACB2477DCAF00EC5DF5 /* BreedQuizPresenter.swift */,
-				04F6DACE2477DCAF00EC5DF5 /* BreedQuizModels.swift */,
-				04F6DACC2477DCAF00EC5DF5 /* BreedQuizWorker.swift */,
-				04F6DACD2477DCAF00EC5DF5 /* BreedQuizRouter.swift */,
-			);
-			path = BreedQuiz;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -496,7 +569,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Alex Kiritsa";
 				TargetAttributes = {
 					043D3B2425025D8D007D3322 = {
@@ -554,11 +627,14 @@
 			files = (
 				043D3B3425025E4B007D3322 /* BreedCellTests.swift in Sources */,
 				043D3B2825025D8D007D3322 /* CatApiTestTests.swift in Sources */,
+				0456059F253593C7007440BE /* BreedQuizViewControllerTests.swift in Sources */,
 				045C38C72507A4390027028A /* BreedViewControllerTests.swift in Sources */,
 				045C38C42507A2650027028A /* TableViewCellViewModelTests.swift in Sources */,
 				04035A13252783D9008B2353 /* DetailImageViewCellTests.swift in Sources */,
 				045C38C22507639E0027028A /* ViewModelTests.swift in Sources */,
 				04035A0925277F07008B2353 /* DetailTextViewCellTests.swift in Sources */,
+				044140132534924A005400A0 /* QuizViewTests.swift in Sources */,
+				040B7063252860EC00821522 /* QuizViewModelTests.swift in Sources */,
 				04C9C3EC250A6401000F0458 /* DetailViewModelTests.swift in Sources */,
 				04035A0F25278221008B2353 /* DetailDescriptionViewCelTests.swift in Sources */,
 			);
@@ -576,40 +652,40 @@
 				0455405224C624FC0007096B /* TableViewCellViewModelType.swift in Sources */,
 				045D642724767E06006798B7 /* TabBarViewController.swift in Sources */,
 				0466FF5524C8449C00F262E5 /* DetailViewModelType.swift in Sources */,
+				04E275F4252B3B02008F9B59 /* QuizView + Extension.swift in Sources */,
 				04CBDCBC246016FD004D6A8A /* NetworkDataFetcher.swift in Sources */,
 				04CBDCB82460155F004D6A8A /* NetworkService.swift in Sources */,
-				04F6DAD42477DCAF00EC5DF5 /* BreedQuizModels.swift in Sources */,
 				04A8FD32246D4F6F00ACB1A7 /* WebImageView.swift in Sources */,
 				0455405424C6253E0007096B /* ViewModel.swift in Sources */,
 				047B2A7024E2FA680077DAFA /* DetailViewModelItemType.swift in Sources */,
 				04BA407524701BBB009F9669 /* Int + Extension.swift in Sources */,
-				04F6DAD52477DCAF00EC5DF5 /* BreedQuizViewController.swift in Sources */,
 				04F5B26B24E0036B002B9B6E /* DetailDescriptionViewCell.swift in Sources */,
 				04BA4073247015FC009F9669 /* RatingStackView.swift in Sources */,
 				04C3FF9524E4102F00234887 /* DetailImageViewCellViewModel.swift in Sources */,
 				0455405024C624D80007096B /* TableViewViewModelType.swift in Sources */,
 				04E121B824D2C20C00309AFA /* DetailTextViewCell.swift in Sources */,
 				0466FF5B24C845AD00F262E5 /* DetailViewModel.swift in Sources */,
-				04F6DAD12477DCAF00EC5DF5 /* BreedQuizPresenter.swift in Sources */,
+				0400C35C2528A7BA00767FFA /* BreedQuizData.swift in Sources */,
 				04CBDCBA246015B8004D6A8A /* API.swift in Sources */,
 				04C3FF9324E40F4800234887 /* DetailImageViewCell.swift in Sources */,
 				04F5B26D24E00575002B9B6E /* DetailDescriptionCellViewModel.swift in Sources */,
 				047B2A6C24E2BCAC0077DAFA /* DetailRatingViewCell.swift in Sources */,
 				0455405624C6F3430007096B /* TableViewCellViewModel.swift in Sources */,
+				04E275F0252B3AE3008F9B59 /* QuizView.swift in Sources */,
 				04CBDCD9246063A4004D6A8A /* Constraints.swift in Sources */,
 				04E121BA24D9AF0100309AFA /* DetailCellViewModelType.swift in Sources */,
 				047B2A6E24E2BD030077DAFA /* DetailRatingCellViewModel.swift in Sources */,
 				04A8FD34246D51AF00ACB1A7 /* BreedImageResponse.swift in Sources */,
+				04E87024252B30DB0013D1C9 /* BreedQuizViewController.swift in Sources */,
 				04F6DADF24781F6E00EC5DF5 /* ColorConstant.swift in Sources */,
 				048D1BE324741D1000FAC83A /* GalleryCollectionViewCell.swift in Sources */,
 				045D642B24769930006798B7 /* RowLayout.swift in Sources */,
 				04F6DAE42478547300EC5DF5 /* ErrorPresenter.swift in Sources */,
 				04CBDCBF2460179E004D6A8A /* BreedResponse.swift in Sources */,
 				04CBDCDB24607839004D6A8A /* BreedViewController.swift in Sources */,
-				04F6DAD62477DCAF00EC5DF5 /* BreedQuizInteractor.swift in Sources */,
+				040B705C25285DA100821522 /* BreedQuizViewModel.swift in Sources */,
+				040B707C2528A66600821522 /* BreedQuizViewModelType.swift in Sources */,
 				04F5B26924DFF4DB002B9B6E /* DetailTextCellViewModel.swift in Sources */,
-				04F6DAD22477DCAF00EC5DF5 /* BreedQuizWorker.swift in Sources */,
-				04F6DAD32477DCAF00EC5DF5 /* BreedQuizRouter.swift in Sources */,
 				048569F3245DE89D000F9A48 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -704,6 +780,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -764,6 +841,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
