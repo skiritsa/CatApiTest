@@ -10,22 +10,22 @@ import Foundation
 import UIKit
 
 class DetailViewModel: DetailViewModelType {
-    
+
     var breed: BreedResponse
     var fetcher: DataFetcher
-    
+
     var allCells = [DetailCellViewModelType]()
-    
+
     var imageRatio: CGFloat = 0
-    
+
     var imageURL: String = ""
-    
+
     func numberOfRows() -> Int {
         return allCells.count
     }
-    
+
     private func configData(breed: BreedResponse) {
-        
+
         let breedPhoto = DetailImageViewCellViewModel(imageUrl: imageURL)
         let description = DetailDescriptionCellViewModel(title: "DESCRIPTION", text: breed.description)
         let lifeSpan = DetailTextCellViewModel(title: "LIFESPAN", text: breed.lifeSpan)
@@ -44,29 +44,29 @@ class DetailViewModel: DetailViewModelType {
         let natural = DetailTextCellViewModel(title: "NATURAL", text: breed.natural.isBool)
         let rare = DetailTextCellViewModel(title: "RARE", text: breed.rare.isBool)
         let hypoallergenic = DetailTextCellViewModel(title: "HYPOALLERGENIC", text: breed.hypoallergenic.isBool)
-        
+
         allCells = [breedPhoto, description, lifeSpan, weigh, temperament, origin,
                     adaptability, childFriendly, dogFriendly, energyLevel, grooming,
                     healthIssues, sheddingLevel, socialNeeds, experimental, natural,
                     rare, hypoallergenic]
-        
+
     }
-    
-    func getData(completion: @escaping () -> ()) {
+
+    func getData(completion: @escaping () -> Void) {
         fetcher.getImageUrl(breed) { imageResponse in
-            
+
             guard let imageResponse = imageResponse?.first else { return }
-            
+
             self.imageURL = imageResponse.url
             self.imageRatio = CGFloat(imageResponse.height) / CGFloat(imageResponse.width)
             self.configData(breed: self.breed)
-            
+
             DispatchQueue.main.async {
                 completion()
             }
         }
     }
-    
+
     init(breed: BreedResponse, fetcher: DataFetcher = NetworkDataFetcher()) {
         self.breed = breed
         self.fetcher = fetcher

@@ -9,14 +9,14 @@
 import Foundation
 
 class DetailTextCellViewModel: DetailCellViewModelType {
-    
+
     var type: DetailViewModelItemType {
         return .textPropertyCell
     }
-    
+
     let title: String
     let text: String
-    
+
     init(title: String, text: String) {
         self.title = title
         self.text = text

@@ -11,29 +11,29 @@ import UIKit
 class BreedQuizViewController: UIViewController {
 
     var viewModel: BreedQuizViewModelType!
-    
+
     var quizView: QuizView = {
         let view = QuizView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configView()
         updateView()
-        
+
         view.backgroundColor = ColorConstant.fourthColor
         title = "Breed Quiz"
-        
+
         viewModel.getData()
     }
-    
+
     private func configView() {
         view.addSubview(quizView)
         quizView.fillSuperview()
-        
+
         quizView.delegate = self
     }
 
@@ -49,7 +49,7 @@ extension BreedQuizViewController: QuizViewDelegate {
     func checkAnswer(answer: BreedQuizData.Answer) {
         viewModel.checkAnswer(answer: answer)
     }
-    
+
     func reloadQuiz() {
         quizView.viewData = .initial
         viewModel.getData()

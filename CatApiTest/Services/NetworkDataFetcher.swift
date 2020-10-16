@@ -14,15 +14,15 @@ protocol DataFetcher {
 }
 
 struct NetworkDataFetcher: DataFetcher {
-    
+
     let networking: Networking
-    
+
     init() {
         self.networking = NetworkService()
     }
-    
+
     func getBreed(response: @escaping ([BreedResponse]?) -> Void) {
-        var params = ["":""]
+        var params = ["": ""]
         networking.request(path: API.breeds, params: params) { (data, error) in
             if let error = error {
                 print("Error received requesting data: \(error.localizedDescription)")
@@ -32,14 +32,14 @@ struct NetworkDataFetcher: DataFetcher {
             response(decoded)
         }
     }
-    
+
     func getImageUrl(_ forBreed: BreedResponse?, response: @escaping ([BreedImageResponse]?) -> Void) {
         var params = ["size": "full", "order": "ASC"]
-        
+
         if let breed = forBreed {
         params["breed_id"] = breed.id
         }
-        
+
         networking.request(path: API.breedImage, params: params) { (data, error) in
             if let error = error {
                 print("Error received requesting data: \(error.localizedDescription)")
@@ -49,7 +49,7 @@ struct NetworkDataFetcher: DataFetcher {
             response(decoded)
         }
     }
-    
+
     func getAllImageUrl(response: @escaping ([BreedImageResponse]?) -> Void) {
         let params = ["size": "full", "order": "RANDOM", "limit": "50"]
         networking.request(path: API.breedImage, params: params) { (data, error) in
@@ -61,7 +61,7 @@ struct NetworkDataFetcher: DataFetcher {
             response(decoded)
         }
     }
-    
+
     private func decodeJSON<T: Decodable>(type: T.Type, from: Data?) -> T? {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

@@ -13,5 +13,5 @@ protocol DetailViewModelType {
     var allCells: [DetailCellViewModelType] { get }
     var imageRatio: CGFloat { get }
     func numberOfRows() -> Int
-    func getData(completion: @escaping () -> ())
+    func getData(completion: @escaping () -> Void)
 }

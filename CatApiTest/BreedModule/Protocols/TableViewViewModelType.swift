@@ -9,9 +9,8 @@
 import Foundation
 
 protocol TableViewViewModelType {
-    func getAllBreed(completion: @escaping () -> ())
+    func getAllBreed(completion: @escaping () -> Void)
     func numberOfRows() -> Int
     func cellViewModel(for indexPath: IndexPath) -> TableViewCellViewModelType?
     func viewModelForSelectedRow(at indexPath: IndexPath) -> DetailViewModel?
 }
-

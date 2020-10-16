@@ -9,15 +9,15 @@
 import Foundation
 
 class ViewModel: TableViewViewModelType {
-    
+
     let fetcher: DataFetcher
     var allBreed: [BreedResponse] = []
-    
+
     init(fetcher: DataFetcher = NetworkDataFetcher()) {
         self.fetcher = fetcher
     }
-    
-    func getAllBreed(completion: @escaping () -> ()) {
+
+    func getAllBreed(completion: @escaping () -> Void) {
         fetcher.getBreed { allBreedResponse in
             guard let allBreedResponse = allBreedResponse else { return }
             self.allBreed = allBreedResponse
@@ -26,15 +26,15 @@ class ViewModel: TableViewViewModelType {
             }
         }
     }
-    
+
     func numberOfRows() -> Int {
         return allBreed.count
     }
-    
+
     func cellViewModel(for indexPath: IndexPath) -> TableViewCellViewModelType? {
         return TableViewCellViewModel(breed: allBreed[indexPath.row])
     }
-    
+
     func viewModelForSelectedRow(at indexPath: IndexPath) -> DetailViewModel? {
         return DetailViewModel(breed: allBreed[indexPath.row])
     }

@@ -9,19 +9,19 @@
 import Foundation
 
 enum BreedQuizData {
-    
+
     case initial
     case loading(Data)
     case checkedAnswer(Answer)
-    
+
     struct Data {
         let imageUrl: String
         let buttonTextArray: [String]
     }
-    
+
     struct Answer {
         let answer: String
         var isCorrect: Bool = false
-        var correctAnswer: String? = nil
+        var correctAnswer: String?
     }
 }

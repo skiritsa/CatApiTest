@@ -9,7 +9,7 @@
 import UIKit
 
 class BreedViewController: UIViewController {
-    
+
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -17,24 +17,24 @@ class BreedViewController: UIViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
-    
+
     let loader: UIActivityIndicatorView = {
         let loader = UIActivityIndicatorView()
         loader.translatesAutoresizingMaskIntoConstraints = false
         loader.hidesWhenStopped = true
         return loader
     }()
-    
+
     var viewModel: TableViewViewModelType?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         title = "All Bread"
-        
+
         setTableView()
         setLoader()
-     
+
         viewModel?.getAllBreed {
             self.tableView.reloadData()
             self.loader.stopAnimating()
@@ -47,14 +47,14 @@ extension BreedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.numberOfRows() ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BreedCell.reuseId) as? BreedCell
         guard let viewModel = viewModel, let breedCell = cell else { return UITableViewCell()}
         breedCell.viewModel = viewModel.cellViewModel(for: indexPath)
         return breedCell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel,
             let detailViewModel = viewModel.viewModelForSelectedRow(at: indexPath) else { return }
@@ -64,14 +64,14 @@ extension BreedViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension BreedViewController {
-    
+
     func setLoader() {
         view.addSubview(loader)
         loader.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loader.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         loader.startAnimating()
     }
-    
+
     func setTableView() {
         view.addSubview(tableView)
         tableView.fillSuperview()

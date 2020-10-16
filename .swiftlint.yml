@@ -1,0 +1,8 @@
+disabled_rules:
+  - identifier_name
+  - trailing_whitespace
+
+line_length: 160
+
+excluded: 
+    - CatApiTestTests/

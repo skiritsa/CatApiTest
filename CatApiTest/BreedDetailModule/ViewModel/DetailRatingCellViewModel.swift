@@ -9,14 +9,14 @@
 import Foundation
 
 class DetailRatingCellViewModel: DetailCellViewModelType {
-    
+
     var type: DetailViewModelItemType {
         return .ratingPropertyCell
     }
-    
+
     let title: String
     let rating: Int
-    
+
     init(title: String, rating: Int) {
         self.title = title
         self.rating = rating

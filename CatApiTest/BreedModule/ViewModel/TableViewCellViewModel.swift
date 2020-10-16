@@ -9,16 +9,16 @@
 import Foundation
 
 class TableViewCellViewModel: TableViewCellViewModelType {
-    
+
     private let breed: BreedResponse
-    
+
     var name: String {
         return breed.name
     }
     var origin: String {
         return breed.origin
     }
-    
+
     init(breed: BreedResponse) {
         self.breed = breed
     }

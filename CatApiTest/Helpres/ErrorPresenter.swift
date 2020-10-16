@@ -6,7 +6,6 @@
 //  Copyright © 2020 Alex Kiritsa. All rights reserved.
 //
 
-
 import UIKit
 
 class ErrorPresenter {

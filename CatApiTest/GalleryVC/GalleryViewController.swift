@@ -9,58 +9,58 @@
 import UIKit
 
 class GalleryViewController: UICollectionViewController {
-    
+
     let currentBreed: Bool!
     var rowLayoutHidden: Bool = true
-    
+
     var photos = [BreedImageResponse]()
     let fetcher = NetworkDataFetcher()
-    
+
     var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return refreshControl
     }()
-    
+
     lazy var button = UIBarButtonItem(image: UIImage(named: "switch"), style: .plain, target: self, action: #selector(switchLayout))
-    
+
     init(forBreed: Bool) {
         currentBreed = forBreed
         let layout = TableLayout()
         super.init(collectionViewLayout: layout)
         layout.delegate = self
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationItem.rightBarButtonItem = button
         self.navigationItem.rightBarButtonItem?.tintColor = .white
         self.navigationController?.navigationBar.backgroundColor = ColorConstant.firstColor
         collectionView.backgroundColor = ColorConstant.fourthColor
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        
+
         self.collectionView!.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.reuseId)
-        
+
         getAllPhoto()
-        
-        if currentBreed  {
+
+        if currentBreed {
         collectionView.refreshControl = nil
         } else {
             collectionView.refreshControl = refreshControl
         }
     }
-    
+
     func set(breed: BreedResponse?) {
         fetcher.getImageUrl(breed) { (breedImageResponse) in
             guard let response = breedImageResponse else { return }
-            
+
             self.photos = response
             self.collectionView.reloadData()
         }
     }
-    
+
     func getAllPhoto() {
         if currentBreed == false {
             fetcher.getAllImageUrl { (breedImageResponse) in
@@ -71,11 +71,11 @@ class GalleryViewController: UICollectionViewController {
             }
         }
     }
-    
+
     @objc func refresh() {
         getAllPhoto()
     }
-    
+
     @objc func switchLayout() {
         if rowLayoutHidden {
             let layout = RowLayout()
@@ -89,7 +89,7 @@ class GalleryViewController: UICollectionViewController {
             rowLayoutHidden = true
         }
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -97,18 +97,19 @@ class GalleryViewController: UICollectionViewController {
 
 // MARK: - UICollectionViewDataSource
 extension GalleryViewController {
-    
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return photos.count
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.reuseId, for: indexPath) as! GalleryCollectionViewCell
-        cell.set(imageUrl: photos[indexPath.row].url)
-        return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.reuseId, for: indexPath) as? GalleryCollectionViewCell
+        guard let galleryCell = cell else { return UICollectionViewCell() }
+        galleryCell.set(imageUrl: photos[indexPath.row].url)
+        return galleryCell
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let currentPhoto = photos[indexPath.row].url
             let fullVc = FullPhotoViewController()

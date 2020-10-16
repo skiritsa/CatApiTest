@@ -9,13 +9,13 @@
 import Foundation
 
 class DetailImageViewCellViewModel: DetailCellViewModelType {
-    
+
     var type: DetailViewModelItemType {
         return .imageViewCell
     }
-    
+
     var imageUrl: String
-    
+
     init(imageUrl: String) {
         self.imageUrl = imageUrl
     }

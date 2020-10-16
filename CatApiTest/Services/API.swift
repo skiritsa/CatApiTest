@@ -13,7 +13,7 @@ struct API {
     static let host = "api.thecatapi.com"
     static let version = "/v1"
     static let apiKey = "f190b859-6423-432d-bc14-535a42c1ecb2"
-    
+
     static let breeds = "/breeds"
     static let breedImage = "/images/search"
 }

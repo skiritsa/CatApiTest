@@ -9,9 +9,9 @@
 import UIKit
 
 class DetailTextViewCell: UITableViewCell {
-    
+
     static let reuseId = "DetailTextViewCell"
-    
+
     var viewModel: DetailCellViewModelType? {
         willSet(viewModel) {
             guard let viewModel = viewModel as? DetailTextCellViewModel else { return }
@@ -19,7 +19,7 @@ class DetailTextViewCell: UITableViewCell {
             breedPropertyLabel.text = viewModel.text.uppercased()
         }
     }
-    
+
     var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -35,14 +35,14 @@ class DetailTextViewCell: UITableViewCell {
         label.font = .systemFont(ofSize: 14, weight: .light)
         return label
     }()
-    
+
     private func configTitleLabel() {
         addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
     }
-    
+
     private func configBreedPropertyLabel() {
         addSubview(breedPropertyLabel)
         breedPropertyLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
@@ -50,17 +50,17 @@ class DetailTextViewCell: UITableViewCell {
         breedPropertyLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
         breedPropertyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
     }
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         selectionStyle = .none
         backgroundColor = .clear
-        
+
         configTitleLabel()
         configBreedPropertyLabel()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

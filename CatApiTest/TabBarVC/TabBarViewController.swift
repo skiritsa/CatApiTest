@@ -16,11 +16,11 @@ class TabBarViewController: UITabBarController {
         tabBar.barTintColor = ColorConstant.firstColor
         tabBar.unselectedItemTintColor = .white
         tabBar.tintColor = ColorConstant.secondColor
-        
+
         let breedVC = BreedViewController()
         let viewModel = ViewModel()
         breedVC.viewModel = viewModel
-        
+
         let breedItem = UITabBarItem()
         breedItem.title = "Breeds"
         breedItem.image = UIImage(named: "catPixel")
@@ -28,7 +28,7 @@ class TabBarViewController: UITabBarController {
         let breedNav = UINavigationController(rootViewController: breedVC)
         breedNav.navigationBar.barTintColor = ColorConstant.firstColor
         breedNav.tabBarItem = breedItem
-        
+
         let galleryVC = GalleryViewController(forBreed: false)
         let galleryItem = UITabBarItem()
         galleryItem.title = "Gallery"
@@ -37,7 +37,7 @@ class TabBarViewController: UITabBarController {
         let galleryNav = UINavigationController(rootViewController: galleryVC)
         galleryNav.navigationBar.barTintColor = ColorConstant.firstColor
         galleryNav.tabBarItem = galleryItem
-        
+
         let breedQuizVC = BreedQuizViewController()
         let quizViewModel = BreedQuizViewModel()
         breedQuizVC.viewModel = quizViewModel
@@ -48,9 +48,9 @@ class TabBarViewController: UITabBarController {
         let quizNav = UINavigationController(rootViewController: breedQuizVC)
         quizNav.navigationBar.barTintColor = ColorConstant.firstColor
         quizNav.tabBarItem = quizItem
-        
+
         let tabBarLists = [breedNav, galleryNav, quizNav]
-        
+
         viewControllers = tabBarLists
     }
 

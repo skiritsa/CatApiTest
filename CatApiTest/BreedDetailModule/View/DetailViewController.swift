@@ -9,30 +9,30 @@
 import UIKit
 
 class DetailViewController: UITableViewController {
-    
+
     private var viewModel: DetailViewModelType?
-    
+
     convenience init(viewModel: DetailViewModelType) {
         self.init()
         self.viewModel = viewModel
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configTableView()
-        
+
         guard let viewModel = viewModel else { return }
         viewModel.getData { [weak self] in
             self?.tableView.reloadData()
         }
     }
-    
+
     private func configTableView() {
         tableView.estimatedRowHeight = 10
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = ColorConstant.fourthColor
-        
+
         tableView.register(DetailTextViewCell.self, forCellReuseIdentifier: DetailTextViewCell.reuseId)
         tableView.register(DetailDescriptionViewCell.self, forCellReuseIdentifier: DetailDescriptionViewCell.reuseId)
         tableView.register(DetailRatingViewCell.self, forCellReuseIdentifier: DetailRatingViewCell.reuseId)
@@ -41,11 +41,11 @@ class DetailViewController: UITableViewController {
 }
 
 extension DetailViewController {
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.numberOfRows() ?? 0
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let viewModel = viewModel else { return UITableView.automaticDimension }
         if indexPath.row == 0 {
@@ -54,11 +54,11 @@ extension DetailViewController {
             return UITableView.automaticDimension
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let viewModel = viewModel else { return UITableViewCell()}
         let item = viewModel.allCells[indexPath.row]
-        
+
         switch item.type {
         case .descriptionBreedCell:
             if let cell = tableView.dequeueReusableCell(withIdentifier: DetailDescriptionViewCell.reuseId, for: indexPath) as? DetailDescriptionViewCell {
@@ -81,7 +81,7 @@ extension DetailViewController {
                 return cell
             }
         }
-        
+
         return UITableViewCell()
     }
 }
