@@ -23,6 +23,7 @@ class BreedQuizViewController: UIViewController {
 
         configView()
         updateView()
+        configBarButton()
 
         view.backgroundColor = ColorConstant.fourthColor
         title = "Breed Quiz"
@@ -43,6 +44,18 @@ class BreedQuizViewController: UIViewController {
         }
     }
 
+    private func configBarButton() {
+        let button = UIBarButtonItem(image: UIImage(named: "emptyStar"), style: .plain, target: self, action: #selector(pushToQuizStatisticVC))
+        self.navigationItem.rightBarButtonItem = button
+
+    }
+
+    @objc private func pushToQuizStatisticVC() {
+        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else { return }
+        let quizStatisticVC = QuizStatisticViewController()
+        quizStatisticVC.viewModel = QuizStatisticViewModel(context: context)
+        self.navigationController?.pushViewController(quizStatisticVC, animated: true)
+    }
 }
 
 extension BreedQuizViewController: QuizViewDelegate {

@@ -39,7 +39,12 @@ class TabBarViewController: UITabBarController {
         galleryNav.tabBarItem = galleryItem
 
         let breedQuizVC = BreedQuizViewController()
-        let quizViewModel = BreedQuizViewModel()
+
+        //swiftlint:disable force_cast
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //swiftlint:enable force_cast
+        
+        let quizViewModel = BreedQuizViewModel(context: context)
         breedQuizVC.viewModel = quizViewModel
         let quizItem = UITabBarItem()
         quizItem.title = "Quiz"

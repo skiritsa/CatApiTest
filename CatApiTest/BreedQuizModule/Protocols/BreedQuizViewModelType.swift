@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import CoreData
 
 protocol BreedQuizViewModelType {
+    var context: NSManagedObjectContext { get set }
     var updateViewData: ((BreedQuizData) -> Void)? { get set }
     func getData()
     func checkAnswer(answer: BreedQuizData.Answer)

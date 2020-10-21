@@ -7,17 +7,22 @@
 //
 
 import Foundation
+import CoreData
 
 class BreedQuizViewModel: BreedQuizViewModelType {
 
+    var context: NSManagedObjectContext
     var fetcher: DataFetcher
+
     var currentBreed: BreedResponse?
     var breedImage: BreedImageResponse?
+
     var buttonText: [String] = []
     var updateViewData: ((BreedQuizData) -> Void)?
 
-    init(fetcher: DataFetcher = NetworkDataFetcher()) {
+    init(context: NSManagedObjectContext, fetcher: DataFetcher = NetworkDataFetcher()) {
         self.fetcher = fetcher
+        self.context = context
     }
 
     func getData() {
@@ -45,11 +50,46 @@ class BreedQuizViewModel: BreedQuizViewModelType {
             var checkedAnswer = answer
             checkedAnswer.correctAnswer = answer.answer
             checkedAnswer.isCorrect = true
+            changeStatistic(isCorretAnswer: true)
             updateViewData?(.checkedAnswer(checkedAnswer))
         } else {
             var checkedAnswer = answer
             checkedAnswer.correctAnswer = currentBreed.name
+            changeStatistic(isCorretAnswer: false)
             updateViewData?(.checkedAnswer(checkedAnswer))
+        }
+    }
+
+    private func changeStatistic(isCorretAnswer: Bool) {
+        guard let statistic = fetchStatistic() else { return }
+        statistic.totalPlayed += 1
+
+        if isCorretAnswer { statistic.winning += 1 }
+        statistic.lastGame = Date()
+
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+
+    private func fetchStatistic() -> QuizStatistic? {
+        let fetchRequest: NSFetchRequest<QuizStatistic> = QuizStatistic.fetchRequest()
+        do {
+            let statistic = try context.fetch(fetchRequest)
+            if statistic.isEmpty {
+                let statistic = QuizStatistic(context: context)
+                statistic.totalPlayed = 0
+                statistic.winning = 0
+                try context.save()
+                return statistic
+            } else {
+                return statistic.first
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            return nil
         }
     }
 
